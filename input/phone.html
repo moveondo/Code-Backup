@@ -1,0 +1,161 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>input框及手机号码验证</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=0;">
+    <meta name="format-detection" content="telephone=no" />
+     <style>
+         .phone{
+          width: 100%;
+          margin: 5px 0% 5px;
+          box-sizing: border-box;
+          padding: 10px 5%;
+          height: 50px;
+          background-color: #fff;
+          border-radius: 28px;
+          text-align: left;
+          line-height: 30px;
+          position: relative;
+          }
+          .phone input{
+          display: inline-block;
+          text-align: left;
+          height: 30px;
+          line-height: 20px;
+          font-size: 14px;
+          border: none;
+          box-sizing: border-box;
+          vertical-align: middle;
+          -webkit-user-modify: read-write-plaintext-only;
+          -webkit-appearance: none;
+          }
+          :focus {
+          outline: 0;
+          }
+          #errormessage{
+          color: #f52b3c;
+          padding-left: 10%;
+          font-size: 0.9rem;
+          margin: 1% 0 2%;
+          }
+
+          .mclose{
+          position: absolute;
+          top: 30%;
+          right: 5%;
+          display: none;
+          }
+          .mclose img{
+          width: 20px;
+          height: 20px;
+          }
+</style>
+</head>
+<body>
+ <div class="phone">
+    <input type="tel" maxLength="13" onpaste="return false" oncopy="return false;" oncut="return false;" oninput="if(value.length>13)value=value.slice(0,13)" placeholder="请输入常用手机号" name="phoneNum" class="phoneNum" id="num1" />
+    <div class="mclose">
+      <img src="//mobiccdai.ppdaicdn.com/source/cpa_new/image/mclose.png" id="mclose" >
+    </div>
+ </div>
+  <div id="errormessage"></div>
+ </body>
+ <script src="//m.ppdaicdn.com/act/cpa/js/jquery.min.js"></script>
+<script>
+     var mValue;
+   function checkMobile(){
+      $(".mclose").show();
+       var sMobile = $("#num1").val();
+       mValue = sMobile.replace(/(\s*)|(\s*)/g,"");
+      if(!(/^\d{1,11}$/.test(mValue)) && mValue.length>="1"){
+          $("#errormessage").html("*手机号码错误");
+          $("#num1").focus().attr('placeholder','请输入正确的手机号~');
+          return false;
+      }
+      if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(mValue)) && mValue.length=="11"){
+          $("#errormessage").html("*手机号码错误");
+            //console.log(112+"--"+ mValue.length);
+          $("#num1").focus().attr('placeholder','请输入正确的手机号~');
+          return false;
+      }
+      return true;
+   }
+   $("#num1").focus(function(){
+         // input框获取焦点，展示下拉框
+          $(".mclose").show();
+
+     }).blur(function(){
+         setTimeout(function(){
+             // input框失去焦点，隐藏下拉框
+              $(".mclose").hide();
+              var sMobile = $("#num1").val();
+                  mValue = sMobile.replace(/(\s*)|(\s*)/g,"");
+               //checkMobile();
+              if(mValue.length<"11" && mValue.length>="1"){
+                $("#errormessage").html("*手机号码错误");
+              }
+             if(mValue.length=="11"){
+                ChecknewUser();
+              }
+         }, 500);
+     }).keyup(function(){
+       setTimeout(function(){
+        
+        var phoneNum = this.value.trim();
+         if($("#num1").val()==""){
+           $("#errormessage").html("");
+           return false;
+         }
+         checkMobile();
+         if(phoneNum.length=="11" &&  checkMobile()){
+            $("#errormessage").html("");
+         }
+       }, 400);
+     })
+    $("#mclose").on('click',function(){
+      $("#num1").val("").focus();
+       $("#errormessage").html("");
+       return false;
+   })
+   
+   //临时添加，这个写法还是有“bug”，产品没有让上
+      $("#num1").on('keyup',function(e){
+       var phoneNum = this.value.trim();
+       if (e.keyCode === 8) {
+         this.value = phoneNum;
+         return;
+       }
+       var len = phoneNum.length;
+       if (len === 3 || len === 8) {
+         phoneNum += ' ';
+         this.value = phoneNum;
+       }
+   })
+ //修复手机号码bug
+   var firstLen = 0;
+ var lastLen = 0;
+   $("#num1").on("keyup",function () {
+
+         lastLen =  $("#num1").val().length;
+      console.log(lastLen);
+         if (lastLen > firstLen) {
+          firstLen = $("#num1").val().length;
+          if (lastLen === 4 || lastLen === 9) {
+           var temp1 = this.value.substr(0, this.value.length - 1);
+           var temp2 = this.value.substr(this.value.length - 1);
+      console.log(temp1+"-"+temp2);
+           this.value = temp1 + ' ' + temp2;
+          }
+         } else if (lastLen <= firstLen) {
+         if (lastLen === 4 || lastLen === 9) {
+            this.value = this.value.substr(0, this.value.length - 1);
+           }
+          firstLen = this.value.length;
+         }
+    //如果手机出现卡顿，可适当把定时器时间加大
+    var sMobile = $("#num1").val();
+    mValue = sMobile.replace(/(\s*)|(\s*)/g,"");
+    if(mValue.length=="11"){alert(mValue)}
+     })
+  </script>
