@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>曹操贷-最快10分钟放款</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="//m.ppdaicdn.com/act/ccdl/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="//m.ppdaicdn.com/act/ccdl/css/style.css">
+</head>
+<body>
+    <header>
+        <img src="//m.ppdaicdn.com/act/ccdl/img/banner.png" class="banner">
+    </header>
+    <div class="cont">
+        <!-- <img src="//m.ppdaicdn.com/act/ccdl/img/text.png" class="text">
+        <div class="num"><span id="amount" class="amount">3,152,672,400</span>元</div>-->
+        <a class="downLoad" id="btn">
+            <img src="//m.ppdaicdn.com/act/ccdl/img/btn.png" class="btn" style="margin: 15% 0 25px;">
+        </a>
+    </div>
+	 <footer style="line-height:50px;color:#fff;font-size:12px;text-align:center;">© 2016 无锡拍拍贷金融信息服务有限公司 版权所有</footer>
+    <script src="//m.ppdaicdn.com/act/ccdl/js/jquery.min.js"></script>
+    <script>
+
+    //获取渠道参数；
+    var _src = GetQueryString("source");
+        _src = !_src ? "" : _src;
+
+    //获取页面url参数；
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return (r[2]); return null;
+    }
+    var  isWeiXin = function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var isWx       = isWeiXin(),
+        isiOS      = navigator.userAgent.match('iPad')
+                     || navigator.userAgent.match('iPhone')
+                     || navigator.userAgent.match('iPod'),
+         dlurl =  GetQueryString("url"),
+         iosURL     = !dlurl ? "https://itunes.apple.com/cn/app/id1104239394" : dlurl,
+        isAndroid  = navigator.userAgent.match('Android');
+    var os = isiOS ? "ios" : "Android";
+    var downLoad= function(){
+            if (isWx) {
+                window.location.href="//m.ppdai.com/act/caocao/down.html?source="+_src+"&url="+dlurl;
+            }else if(isiOS){
+                window.location.href=iosURL;
+            }else{
+                var Url = "//m.ppdai.com/Down/CaoCaoLoan/"+_src;
+                window.location.href=Url;
+            }
+        };
+    //点击传值并下载；
+   $('#btn').on('click',function(){
+        downLoad();
+    })
+     //数字累加效果
+    // var currentNum = parseInt($("#amount").html().replace(/\,/g,''));
+    // setInterval("jump()",1500);
+    // function jump(){
+    //     currentNum += 400;
+    //     $("#amount").html(thousands(currentNum));
+    // }
+    //千位分隔符；
+    function thousands(num){
+            num = num.toString();
+            if(/^-?\d+\.?\d+$/.test(num)){
+                if(/^-?\d+$/.test(num)){
+                    num =num + ",00";
+                }else{
+                    num = num.replace(/\./,',');
+                }
+                while(/\d{4}/.test(num)){
+                    num = num.replace(/(\d+)(\d{3}\,)/,'$1,$2');
+                }
+                num = num.replace(/\,(\d*)$/,'');
+            }
+            return num;
+        }
+
+
+        //PV UV统计
+    var _vds = _vds || [];
+    window._vds = _vds;
+    var sourceG = GetQueryString('source');
+    var thispathname = window.location.pathname;
+    (function () {
+      _vds.push(['setAccountId', 'b9598a05ad0393b9']);
+      _vds.push(['setPageGroup', 'ccdCpasource']);
+      _vds.push(['setPS1', sourceG]);
+      _vds.push(['setPS2', thispathname]);
+    (function () {
+        var vds = document.createElement('script');
+        vds.type = 'text/javascript';
+        vds.async = true;
+        vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(vds, s);
+      })();
+    })();
+
+  </script>
+</body>
+</html>

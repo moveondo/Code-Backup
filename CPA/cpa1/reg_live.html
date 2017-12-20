@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <title>曹操贷</title>
+    <style type="text/css">
+        body {
+            background-color: #efefef;
+        }
+
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+        }
+        p {
+            text-align: center;
+            color: #191919;
+            font-size: 18px;
+            position: absolute;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <p>设置安全密码完成注册</p>
+    <iframe name="iframe" id="iframe"></iframe>
+    <script src="http://m.ppdaicdn.com/act/cpa/js/jquery.min.js"></script>
+    <script>
+        var pageUrl = "https://ac.ppdai.com/activitypage?redirect=&activityId=70";
+        var phoneNum = GetQueryString('phoneNum');
+        var _src=GetQueryString("source");
+        if(!_src) _src =="";
+        pageUrl = pageUrl+"&phoneNum="+phoneNum+"&source="+_src;
+
+        $('iframe').attr('src',pageUrl);
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r!=null) return (r[2]); return null;
+        }
+
+      //PV UV统计
+      var _vds = _vds || [];
+      window._vds = _vds;
+      var sourceG = GetQueryString('source');
+      (function () {
+          _vds.push(['setAccountId', 'b9598a05ad0393b9']);
+          _vds.push(['setPageGroup', 'ccdCpasource']);
+          _vds.push(['setPS1', sourceG]);
+          (function () {
+            var vds = document.createElement('script');
+            vds.type = 'text/javascript';
+            vds.async = true;
+            vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(vds, s);
+          })();
+      })();
+
+    </script>
+</body>
+</html>

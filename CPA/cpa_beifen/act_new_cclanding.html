@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>曹操贷最快10分钟放款</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="//m.ppdaicdn.com/act/new_cclanding/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="//m.ppdaicdn.com/act/new_cclanding/css/style.css">
+	<script type="text/javascript">
+	(function (d, s, i) {
+	var f = d.getElementsByTagName(s)[0],j = d.createElement(s);
+	j.async = true; j.src ='//ubt.ppdaicdn.com/ppubt.js?Landing=true&appid=' + i ;
+	f.parentNode.insertBefore(j, f);
+	})(document, 'script', '1');
+	</script>
+</head>
+<body>
+    <div class="cont">
+                <img src="//m.ppdaicdn.com/act/new_cclanding/img/banner.png" class="banner">
+                <img src="//m.ppdaicdn.com/act/new_cclanding/img/text.png" class="text">
+                <div class="num"><span id="amount" class="amount">3,152,672,400</span>元</div>
+                <a id="btn1">
+                    <img src="//m.ppdaicdn.com/act/new_cclanding/img/btn.png" class="btn">
+                </a>
+                <img src="//m.ppdaicdn.com/act/new_cclanding/img/center.png" class="center">
+                <img src="//m.ppdaicdn.com/act/new_cclanding/img/usersay.png" class="usersay">
+                <div class="cmmtArea">
+                    <div class="cmmtCont">
+                        <img src="//m.ppdaicdn.com/act/new_cclanding/img/cmt1.png">
+                        <img src="//m.ppdaicdn.com/act/new_cclanding/img/cmt2.png">
+                        <img src="//m.ppdaicdn.com/act/new_cclanding/img/cmt3.png">
+                        <img src="//m.ppdaicdn.com/act/new_cclanding/img/cmt4.png">
+                        <img src="//m.ppdaicdn.com/act/new_cclanding/img/cmt5.png" style="border-bottom:none;">
+                    </div>
+                </div>
+				<P style="color:#fff;margin-top:10px;font-size:12px;">拍拍贷旗下产品&nbsp;沪ICP备05063398号</p>
+                <img src="//m.ppdaicdn.com/act/new_cclanding/img/tel.png" class="tel">
+    </div>
+    <footer>
+        <a id="btn2"><img src="//m.ppdaicdn.com/act/new_cclanding/img/foot.png"></a>
+    </footer>
+    <script src="//m.ppdaicdn.com/act/new_cclanding/js/jquery.min.js"></script>
+    <script>
+    //数字累加
+        var currentNum = parseInt($("#amount").html().replace(/\,/g,''));
+        setInterval("jump()",1500);
+        function jump(){
+            currentNum += 400;
+            $("#amount").html(thousands(currentNum));
+        }
+        //千位分隔符；
+        function thousands(num){
+                num = num.toString();
+                if(/^-?\d+\.?\d+$/.test(num)){
+                    if(/^-?\d+$/.test(num)){
+                        num =num + ",00";
+                    }else{
+                        num = num.replace(/\./,',');
+                    }
+                    while(/\d{4}/.test(num)){
+                        num = num.replace(/(\d+)(\d{3}\,)/,'$1,$2');
+                    }
+                    num = num.replace(/\,(\d*)$/,'');
+                }
+                return num;
+            }
+
+    //下载处理
+    $(function(){
+        function GetQueryString(name) { //获取所跟source
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r!=null) return (r[2]); return null;
+        }
+        var  isWeiXin = function() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        var isWx       = isWeiXin(),
+            isiOS      = navigator.userAgent.match('iPad')
+                         || navigator.userAgent.match('iPhone')
+                         || navigator.userAgent.match('iPod'),
+            dlurl =  GetQueryString("url"),
+            iosURL     = dlurl == null ? "https://itunes.apple.com/cn/app/id1104239394" : dlurl,
+            isAndroid  = navigator.userAgent.match('Android');
+        if (isWx) {
+            var wxContent = '<img src="//m.ppdaicdn.com/img/app/loan_caocao.png" class="wx_img">';
+            $(wxContent).appendTo($('body'));
+        }else if(isiOS){
+            $('#btn1,#btn2').attr('href',iosURL);
+        }else{
+            var _src = GetQueryString("source");
+                _src = _src== null ? "" : _src;
+            var Url = "//m.ppdai.com/Down/CaoCaoLoan/"+_src;
+            $('#btn1,#btn2').attr('href',Url);
+        }
+    })
+    </script>
+</body>
+</html>

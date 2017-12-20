@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>曹操贷搞事情,借钱不用还！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="曹操贷搞事情,借钱不用还！">
+    <meta itemprop="description" content="无门槛零担保，最快30分钟到账，更有免息红包疯抢中.......">
+    <meta itemprop="image" content="//mobiccdai.ppdaicdn.com/source/cpa/image/banner1.png">
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/cpa/css/tenth.css">
+</head>
+<body>
+  <div style="display:none">
+        <img src="//mobiccdai.ppdaicdn.com/source/cpa/image/banner1.png">
+        <p>无门槛零担保，最快30分钟到账，更有免息红包疯抢中.......</p>
+  </div>
+  <div class="content">
+    <div class="banner">
+      <img src="//mobiccdai.ppdaicdn.com/source/cpa/image/banner1.png" class="banner">
+    </div>
+    <div class="rule">
+        <div class="title">
+          <img src="//mobiccdai.ppdaicdn.com/source/cpa/image/rule.png" class="ruelimg">
+        </div>
+        <p class="rule_text">1,活动时间：6月15日-6月30日；<br />
+          2,活动期间内，从本页面新注册并成功借款新用户中随机抽取100个借钱不用还的名额；<br />
+          3,获奖用户还款成功后，15个工作日内会将借款金额全额返还至用户账户；<br />
+          4,老用户可在曹操贷APP中参与老用户专享的领券活动；<br />
+          5,活动中奖名单会在曹操贷官方服务号"caocaodainb"中公布，敬请关注。<br />
+          </p>
+    </div>
+    <div class='phone'>
+        <label>手机号</label>
+        <input type="tel" maxLength="11" placeholder="请输入常用手机号" name="phoneNum" class="phoneNum" id="num1"/>
+    </div>
+
+    <div class="downLoad" id="btn1">
+      我要借款
+    </div>
+  </div>
+
+	  <div class="pop"></div>
+    <div class="toast1">
+        <p>客官，您的手机已经注册了拍拍贷，可直接登录曹操贷。</p>
+        <p>曹操贷是拍拍贷旗下产品，账号通用哦！</p>
+        <div class="sureBtn">确定</div>
+    </div>
+     <div class="toast2">
+        <p>客官，您的手机已经注册，请下载曹操贷APP直接登录！</p>
+        <div class="sureBtn">确定</div>
+    </div>
+    <script src="//m.ppdaicdn.com/act/cpa/js/jquery.min.js"></script>
+    <script>
+
+    $("#num1,#num2").focus();
+		$('body').on('click',function(){
+		    $("#num1,#num2").focus();
+		})
+
+     //获取渠道参数；
+    var flag;
+    var mob1;
+    var _src = GetQueryString("source");
+        _src = !_src ? "" : _src;
+    console.log(_src);
+    var channel = 'CPA',
+        uType,
+        refId;
+    //获取页面url参数；
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return (r[2]); return null;
+    }
+    var  isWeiXin = function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var isWx       = isWeiXin(),
+        isiOS      = navigator.userAgent.match('iPad')
+                     || navigator.userAgent.match('iPhone')
+                     || navigator.userAgent.match('iPod'),
+         dlurl =  GetQueryString("url"),
+         iosURL     = !dlurl ? "https://itunes.apple.com/cn/app/id1104239394" : dlurl,
+        isAndroid  = navigator.userAgent.match('Android');
+	var _tp = isiOS ? 0 : 1;
+    var os = isiOS ? "ios" : "Android";
+   var downLoad= function(){
+            if (isWx) {
+                window.location.href="//m.ppdai.com/act/caocao/down.html?source="+_src+"&url="+dlurl;
+            }else if(isiOS){
+                window.location.href=iosURL;
+            }else{
+                var Url = "//m.ppdai.com/Down/CaoCaoLoan/"+_src;
+                window.location.href=Url;
+            }
+        };
+
+    var saveRecord = function(userType){
+        if(userType.IsNewUser){uType=1}else if(userType.IsCaoCaoUser){uType=2}else{uType=3}
+        var url = '//mobiccdai.ppdai.com/ccdai/api/distribute/saveDownloadRecordForDownload.htm';
+        var datas = {
+            mobile:mob1,
+            channel:channel,
+            subChannel:_src,
+            os:os,
+            sendMsg:false,
+            userType:uType,
+        }
+        $.ajax({
+            type:'get',
+            url:url,
+            data:datas,
+            dataType:'jsonp',
+            success:function(data){
+                var data =$.parseJSON(data);
+                if(data.result == 0){
+                    refId = data.id;
+                    if(uType==1){
+                        //新用户
+                        window.location.href="reg_tenth.html?phoneNum="+mob1+"&source="+_src;
+                    }else if(uType==2){
+                        //是曹操贷用户，提示
+                        $('.pop').show();
+                        $('.toast2').show();
+                    }else{
+                        //拍拍贷用户
+                        $('.pop').show();
+                        $('.toast1').show();
+                    }
+                }
+            },
+            error: function(){
+                //alert("网络错误1");
+                  error_fetch(XMLHttpRequest, textStatus, errorThrown);
+            }
+        })
+    }
+
+    //异常捕获
+        var error_fetch = function(XMLHttpRequest, textStatus, errorThrown){
+            var url = '//mobiccdai.ppdai.com/ccdai/api/distribute/sendMessage.htm';
+            var error_massage=XMLHttpRequest.readyState+"-cpa-"+XMLHttpRequest.status+"--"+textStatus;
+            $.ajax({
+                type:'get',
+                url:url,
+                data:{content:error_massage},
+                dataType:'jsonp',
+                success:function(data){
+                },
+                error: function(){
+                    //alert("网络错误2");
+                    //alert(XMLHttpRequest.readyState+"--"+XMLHttpRequest.status+"--"+textStatus);
+                }
+            })
+        }
+
+    var confirmDownload = function(){
+        var url = '//mobiccdai.ppdai.com/ccdai/api/distribute/confirmDownload.htm';
+        $.ajax({
+            type:'get',
+            url:url,
+            data:{refId:refId},
+            dataType:'jsonp',
+            success:function(data){
+            },
+            error: function(){
+                //alert("网络错误2");
+                  error_fetch(XMLHttpRequest, textStatus, errorThrown);
+
+            }
+        })
+    }
+
+    //点击传值并下载；
+   $('#btn1,#btn2').on('click',function(){
+        mob1 = $.trim($(this).prev().find('input').val());
+        if(mob1.length<1){
+            $(this).prev().find('input').attr('placeholder','请先输入手机号~').addClass('redPlhd');
+            return;
+        }else if(!/^(13|14|15|17|18)[0-9]{9}$/.test(mob1)){
+            $(this).prev().find('input').val('').attr('placeholder','请输入正确的手机号~');
+            return;
+        }
+        flag=false;
+        $.ajax({
+                type :'get',
+                async: false,
+                url  : "//m.ppdai.com/Activity/CaoCaoCpa",
+                data : {mobile:mob1,source:_src,type:_tp},
+                success: function(data){
+                    if(data.IsSuccess){
+                        saveRecord(data.Result);
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown){
+                    //alert("网络错误3")
+                      error_fetch(XMLHttpRequest, textStatus, errorThrown);
+                }
+            })
+         flag=true;
+    })
+    $('.sureBtn').on('click',function(){
+        $(this).parent().hide();
+        $('.pop').hide();
+        downLoad();
+    })
+     //统计点击次数；
+    var accountClickNum = function(_html,txt){
+        var _url = "//m.ppdai.com/loan/Users/ActionLog";
+        var actionId = GetQueryString('aId');
+           if (!actionId) {
+               actionId = 210;
+           }
+        $.ajax({
+            async: false,
+            url: _url,
+            data: {
+                FunctionName : _html,
+                ActionId : actionId,
+                Remark : txt,
+                Parameter:mob1
+            },
+            type: "GET",
+            dataType: 'json',
+            success: function(data) {
+                //console.log(data)
+            }
+        })
+    }
+    $('.sureBtn').on('click',function(){
+        accountClickNum('APP下载点击量','点击数');
+        confirmDownload();
+    })
+
+                //PV UV统计
+  var _vds = _vds || [];
+  window._vds = _vds;
+  var sourceG = GetQueryString('source');
+  (function () {
+	  _vds.push(['setAccountId', 'b9598a05ad0393b9']);
+      _vds.push(['setPageGroup', 'ccdCpasource']);
+      _vds.push(['setPS1', sourceG]);
+      (function () {
+          var vds = document.createElement('script');
+          vds.type = 'text/javascript';
+          vds.async = true;
+          vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(vds, s);
+      })();
+  })();
+
+
+    </script>
+</body>
+</html>
