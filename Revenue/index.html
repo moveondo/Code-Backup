@@ -1,0 +1,157 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>推广</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=yes">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta itemprop="name" content="！">
+    <meta itemprop="description" content="......">
+    <meta itemprop="image" content="./img/ccdlogo.png">
+    <link rel="stylesheet" type="text/css" href="./css/LCalendar.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/datePicker.css">
+    <style>
+        .help{
+            text-align: center;
+            margin: 2% 0;
+        }
+        .help a{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="leftarrow" id="leftarrow">
+        <img src="//mobiccdai.ppdaicdn.com/source/promotion/image/leftarrow.png" >
+    </div>
+    <p class="title">
+        推广联盟
+    </p>
+</div>
+<div id="mypromotion">
+    <div class="content">
+        <div class="linktitle">邀请链接</div>
+        <div class="description">
+            您可以将地址复制或生成二维码，发布到手机客户端的微信、QQ或者其他APP中。通过以上链接产生的收益将发放至您拍拍贷账户，金额可直接提现。
+        </div>
+        <div class="qrlink">
+            <div class="linkdetail">
+            <textarea rows="10" cols="30" id="textval">
+                活动即将上线，敬请期待
+            </textarea>
+                <div class="copylink" id="copyBtn"  class="js-copy" data-clipboard-text="">
+                    <img src="./source/promotion/image/copy.png" >
+                    <span >复制专属链接</span>
+                </div>
+            </div>
+            <div class="qrcode">
+                <div id="qrcode"> </div>
+                <div class="downlink" id="save">
+                    <img src="/source/promotion/image/download.png" >
+                    <a id="download"  >点击查看二维码</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bind" id="bind0">
+        <img src="//mobiccdai.ppdaicdn.com/source/promotion/image/card.png" >
+        <i>点此绑定银行卡，领取收益</i>
+    </div>
+    <div class="income">
+        收益=首次成功贷款金额*3%*系数+3个月内第二次成功贷款金额*2%
+    </div>
+    <table align="center">
+        <tr><th>首贷期限</th><th>7天</th><th>14天</th><th>21天及以上</th></tr>
+        <tr><td>系数 </td><td>0.7</td><td>0.7</td><td>1.2</td></tr>
+    </table>
+    <div class="small">
+        例如：通过您分享的链接或二维码注册的用户，首次借款3000元，借款时间28天，三个月内该用户再次借款3000元，您将获得的奖金为3000*3%*1.2+3000*2%=168元。
+    </div>
+
+    <!--<div class="interpret">-->
+      <!--最终解释权归曹操贷官方所有-->
+    <!--</div>-->
+
+    <div class="miaoshu">
+        <p class="title"><b>说明</b> </p>
+        <p> 1.每月邀请50位以上的成功借款用户，我们将会有额外的丰厚奖励，敬请期待！</p>
+        <p> 2.如您有任何建议和意见，或寻求商务合作，请发邮件至：ccdbd@ppdai.com ，电话：021-80303200 -8319。</p>
+        <p> 3.如果您想了解更多关于曹操贷的产品信息，欢迎关注我们微信公众号： caocaodainb .</p>
+        <p> 4.本活动最终解释权归官方所有。</p>
+        <div class="help"><a href="./help.html">常见问题点这里</a></div>
+    </div>
+
+</div>
+<div id="myincome">
+    <div class="commission">
+        每个月的15号向您绑定的银行卡发放上个自然月的推广佣金，节假日顺延，请注意查收
+    </div>
+    <div class="cardcontent">
+        <div class="bind" id="bind1">
+            <img src="./source/promotion/image/card.png" >
+            点此绑定银行卡，领取收益
+        </div>
+        <div class="revenue">
+            <div class="lastmonth">
+                <p class="incomefont">上月收入（元）</p>
+                <p class="correct" id="lastMonthProfit"> 0.00</p>
+            </div>
+            <div class="month">
+                <p class="incomefont">本月收入（元）</p>
+                <p class="correct" id="currentMonthProfit"> 0.00</p>
+            </div>
+        </div>
+        <div class="present">
+            <div class="raised">
+                <p class="incomefont">已提现金额（元）</p>
+                <p class="correct" id="withdrawalAmount"> 0.00</p>
+            </div>
+            <div class="totalincome">
+                <p class="incomefont">总收益（元）</p>
+                <p class="correct" id="totalProfit"> 0.00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="detailtime">
+        <div class="timech">时间</div>
+        <div class="startingtime">
+            <input type="text" class="demo-input" size="10" readonly="" placeholder="请选择日期" id="starting">
+        <div> ~</div>
+        <div class="endingtime">
+            <input type="text" class="demo-input" placeholder="请选择日期" size="10" id="ending">
+        </div>
+    </div>
+    <div class="js-blog-list">
+      
+    </div>
+    <div class="js-load-more">加载更多记录</div>
+</div>
+
+
+<div class="my">
+    <div class="mypromotion active">
+       我的推广
+    </div>
+    <div class="myincome">
+        我的收益
+    </div>
+</div>
+
+<div class="downcode">
+ <div class="pop"></div>
+ <div id="downCode"></div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script src="./js/utf.js"></script>
+<script src="./js/jqueryQRcode.js"></script>
+<script src="./js/clipboard.min.js"></script>
+<script type="text/javascript" src="./js/datePicker.js" ></script>
+<script  type="text/javascript"  src="./js/isscroll.js" ></script>
+<script type="text/javascript" src="./js/revenue.js"></script>
+

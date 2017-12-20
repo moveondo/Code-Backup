@@ -1,0 +1,249 @@
+   html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent
+        }
+        body {
+            margin: 0;
+            font-family:"PingFangSC-Regular","sans-serif","STHeitiSC-Light","微软雅黑","Microsoft YaHei";
+            font-size: 62.5%;
+            line-height: 20px;
+            background-color: #fff;
+            color: #333333;;
+        }
+        .header{
+            background: #313a40;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .header .leftarrow{
+            position: absolute;
+            top: 1%;
+            left: 5%;
+        }
+        .leftarrow img{
+            width: 14px;
+        }
+        .header .title{
+            color: #ebecec;
+        }
+        /*.........content.......*/
+        .content{
+            background: #fff4ec;
+            margin: 5%;
+        }
+        .content .linktitle{
+            background: #ff7100;
+            color: #fff;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 1rem;
+        }
+        .content .description{
+            padding: 5%;
+            font-size: 0.8rem;
+            color: #313a40;
+            font-weight: 600;
+        }
+        .copylink img, .downlink img,.bind img{
+            width: 13px;
+            vertical-align: middle;
+        }
+        textarea{
+            width: 100px;
+            height:100px;
+        }
+        .qrlink{
+            display: flex;
+            justify-content: space-around;
+            padding: 1% 0 5%;
+        }
+        .copylink,.downlink{
+            color: #ff7100;
+            font-size: 1rem;
+            margin: 8px 0 0;
+        }
+        a{color: #ff7100;text-decoration:none; }
+        .reminder{
+            background-color: #000;
+            position: absolute;
+            color:#fff;
+            width:200px;
+            height: 32px;
+            border-radius:15px;
+            text-align:center;
+            top: 50%;
+            left: 50%;
+            margin-top: -16px;
+            margin-left: -100px;
+            line-height: 32px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        table {
+            margin:0px auto;
+            width: 90%;
+            border-collapse:collapse;
+        }
+        td, th{
+            border:1px solid #dcdcdc;
+            text-align: center;
+            vertical-align: middle;
+            height:30px;
+            font-weight: 600;
+        }
+        td {
+            background-color:#fff;
+        }
+        .income,.interpret{
+            margin: 5% 5% 3%;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .bind{
+            color: #ff7100;
+            text-align: center;
+            margin: 5% 5% 70px;
+            font-size: 0.8rem;
+        }
+        .my{
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            border-top: 1px solid #e6e6e6;
+            background: #f6f6f6;
+            font-size: 1rem;
+            color: #999999;
+            font-weight: 600;
+        }
+        .active{
+            color: #fd923d;
+        }
+        .mypromotion,.myincome{
+            width: 50%;
+            text-align: center;
+        }
+        .mypromotion{
+            border-right:1px solid #e6e6e6;
+        }
+
+        /*.........myincome.......*/
+        .commission{
+            background: -webkit-linear-gradient(#ff794b, #f9523b); /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(#ff794b, #f9523b); /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(#ff794b, #f9523b); /* Firefox 3.6 - 15 */
+            background: linear-gradient(#ff794b, #f9523b); /* 标准的语法 */
+            height: 80px;
+            padding: 5%;
+            color: #fff;
+            font-size: 0.8rem;
+
+        }
+        .cardcontent{
+            position: relative;
+            background: #ffffff;
+            z-index: 1;
+            width: 90%;
+            margin: -13% 5% 0;
+            padding-bottom: 5%;
+            box-shadow:-5px 0 5px #ebebeb, /*左边阴影*/
+            5px 0 5px #ebebeb, /*右边阴影*/
+            0 5px 5px #ebebeb; /*底边阴影*/
+        }
+        .cardcontent .bind{
+            padding: 4% 0;
+            margin: 5% 5% 0px;
+        }
+        .revenue,.present{
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .present{
+            margin-top: 5%;
+        }
+        .incomefont{
+            color: #999999;
+        }
+        .totalincome{
+            padding-right: 15px;
+        }
+        .correct{
+            padding-right: 15px;
+        }
+        .detailtime{
+            display: flex;
+            justify-content: space-around;
+            margin: 5% 0 5%;
+            line-height: 40px;
+        }
+        .startingtime, .endingtime{
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 15px;
+            text-align: left;
+            line-height: 28px;
+            position: relative;
+            border: 1px solid #dcdcdc;
+            width: 35%;
+            padding: 3px;
+        }
+        .startingtime input, .endingtime input{
+            display: inline-block;
+            text-align: center;
+            border: none;
+            box-sizing: border-box;
+            vertical-align: middle;
+            -webkit-user-modify: read-write-plaintext-only;
+            -webkit-appearance: none;
+            outline: none;
+        }
+        .timech{
+            font-size: 0.8rem;
+            color: #999999;
+        }
+        :focus{
+            border: none;
+        }
+        /**..........loadingdetail............**/
+        .loadingdetail{
+            display: flex;
+            justify-content: space-between;
+            padding: 1% 6%;
+            border-bottom: 1px solid #dcdcdc;
+        }
+        .first{
+            border-top: 1px solid #dcdcdc;
+        }
+        .actual{
+            line-height: 40px;
+            color: #ff7610;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .earnings{
+            color: #000;
+        }
+        .revenuetime{
+            color: #999999;
+        }
+        .js-load-more{
+            color: #999999;
+            line-height: 30px;
+            text-align: center;
+            margin: 20px auto;
+            font-size: 16px;
+        }

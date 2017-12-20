@@ -1,0 +1,107 @@
+ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent
+        }
+        body {
+            margin: 0;
+            font-family:"PingFangSC-Regular","sans-serif","STHeitiSC-Light","微软雅黑","Microsoft YaHei";
+            font-size: 62.5%;
+            line-height: 20px;
+            color: #333333;
+            background-color: #fff;
+        }
+        .header{
+            background: #313a40;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .header .leftarrow{
+            position: absolute;
+            top: 1%;
+            left: 5%;
+        }
+        .leftarrow img{
+            width: 14px;
+        }
+        .header .title{
+            color: #ebecec;
+        }
+        /*绑卡*/
+        input {
+            -webkit-user-modify: read-write-plaintext-only;
+            -webkit-appearance:none;
+            border:none;
+        }
+        .ubox {
+            position: relative;
+            width: 90%;
+            padding: 2% 5%;
+        }
+        .in-name,.id-card {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 5%;
+            height: 50px;
+            background-color: #fff;
+            border-radius: 28px;
+            text-align: left;
+            line-height: 30px;
+            position: relative;
+            margin: 5% 0;
+            border: 1px solid #dcdcdc;
+        }
+        .in-name input,id-card input{
+            display: inline-block;
+            text-align: left;
+            height: 30px;
+            line-height: 20px;
+            font-size: 14px;
+            border: none;
+            box-sizing: border-box;
+            vertical-align: middle;
+            -webkit-user-modify: read-write-plaintext-only;
+            -webkit-appearance: none;
+        }
+        :focus {
+            outline: 0;
+        }
+        .button{
+            background: #fa583e;
+            color: #fff;
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            margin: 3% 5%;
+            width: 90%;
+            border: 1px solid #fa583e;
+            font-size: 1.1rem;
+            border-radius: 25px;
+        }
+        .desc{
+            margin: 0 5%;
+            font-size: 0.8rem;
+            color: #333333;
+        }
+        .reminder{
+            background-color: #000;
+            position: absolute;
+            color: #fff;
+            width: 52%;
+            border-radius: 15px;
+            text-align: center;
+            padding: 1% 4%;
+            top: 39%;
+            left: 50%;
+            margin-left: -30%;
+            line-height: 32px;
+            font-size: 0.9rem;
+        }
