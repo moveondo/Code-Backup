@@ -1,0 +1,312 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta itemprop="name" content="新用户享免息贷款！手慢无！">
+    <meta itemprop="description" content="拍拍贷旗下明星产品，无门槛零担保，最快30分钟到账，快来抢免息名额......">
+    <meta itemprop="image" content="https://m.ppdaicdn.com/img/ccdlogo.png">
+    <meta content=”telephone=no” name=”format-detection” />
+    <title>拍拍贷十周年</title>
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/wechat/css/style1.css">
+    <style>
+        .quan{
+            position: relative;
+        }
+
+        .popp18,.popp5,.popp2{
+            width: 29%;
+            background: #f0f;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            height: 100%;
+            opacity: 0;
+            display: none;
+      }
+
+    </style>
+</head>
+<body>
+<header class="banner">
+    <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/banner1.png"  class="bannerimg">
+</header>
+<section >
+    <div class="content">
+    <div class="quan">
+        <div class="num">  <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/eighteen.png"> </div>
+        <div class="if_else" id="eighteent">
+            <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/get.png" id="eighteenimg">
+        </div>
+        <div class="popp18"></div>
+    </div>
+    <div class="quan">
+        <div class="num">  <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/five.png"> </div>
+        <div class="if_else" id="five">  <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/get.png" id="fiveimg"></div>
+        <div class="popp5"></div>
+    </div>
+    <div class="quan last">
+        <div class="num">  <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/two.png"> </div>
+        <div class="if_else" id="two"> <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/get.png" id="twoimg"></div>
+        <div class="popp2"></div>
+    </div>
+
+</section>
+<div style="clear: both"></div>
+<section class="rule">
+    <div class="title">
+        <img src="//mobiccdai.ppdaicdn.com/source/wechat/image/rule.png"  class="ruleimg">
+    </div>
+    <div class="text">
+        <p> 1、活动时间：6月21日-6月30日</p>
+        <p>2、每位用户每种券面值最多可领1张，不可叠加使用券</p>
+        <p>3、18元神券每日10:00开抢，抢完即止</p>
+        <p>4、2元、5元券每日9:00、14:00、19:00、00:00分时段限量开抢，抢完即止</p>
+        <p>5、优惠券有效期均为从领取开始有效期7天</p>
+    </div>
+</section>
+<div class="loading">
+    <img src="http://m.ppdaicdn.com/home/images/loading.gif" width="40" height="40">
+</div>
+
+<div class="pop"></div>
+
+<div class="toast2">
+    <div class="obtain">
+
+    </div>
+    <div class="deed_circle">
+        <div class="deed deed1">
+            <div class="circle">
+                <sub>券</sub>
+            </div>
+            <div class="borrowing_coupons">
+                <p>借款优惠券</p>
+            </div>
+            <div class="money">
+                <sub class="sign">￥</sub><span id="num">10</span>
+            </div>
+        </div>
+        <div class="sureBtn2">确定</div>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="//mobiccdai.ppdaicdn.com/source/wechat/js/zepto.min.js"></script>
+<script type="text/javascript">
+    function getData(url,data,callback,isasync){
+        $.ajax({
+            async:(isasync==undefined?false:isasync),
+            url: url,
+            type: "GET",
+            data: data,
+            dataType: 'json',
+            success:callback
+        });
+    }
+
+    Zepto(function($) {
+        getData("/ccdai/api/actPartition/isCanSendCoupons.htm?activityCode=a005",{},function(data){
+            if(data.result !='0'){
+                $("#twoimg").attr('src',"//mobiccdai.ppdaicdn.com/source/wechat/image/finish.png");
+            }
+        });
+        getData("/ccdai/api/actPartition/isCanSendCoupons.htm?activityCode=a004",{},function(data){
+            if(data.result !='0'){
+                $("#fiveimg").attr('src',"//mobiccdai.ppdaicdn.com/source/wechat/image/finish.png");
+            }
+        });
+        getData("/ccdai/api/actPartition/isCanSendCoupons.htm?activityCode=a003",{},function(data){
+            if(data.result !='0'){
+                $("#eighteenimg").attr('src',"//mobiccdai.ppdaicdn.com/source/wechat/image/finish.png");
+            }
+        });
+    });
+
+    $("#eighteent").on("touchstart",function(event){
+
+        $.ajax({
+            type: 'GET',
+            data: {
+                activityCode:'a003',
+            },
+            url: "/ccdai/api/actPartition/receiveCoupons.htm",
+            dataType: 'json',
+            beforeSend:function(){
+                $('.loading').show();
+                $(".popp5").show();
+                $(".popp2").show();
+            },
+            complete:function(){
+                $('.loading').hide();
+            },
+            success: function(data) {
+                if(data.result=='0'){
+
+                    $(".pop").css({"display" : "block"});
+                    $(".toast2").css({"display" : "block"});
+                    $(".obtain").css("background-image","url(//mobiccdai.ppdaicdn.com/source/wechat/image/sucesseighteen.png)");
+                    $("#num").html("18");
+                    $(".sureBtn2").bind("touchstart",function(){
+                        $(".pop").css({"display" : "none"});
+                        $(".toast2").css({"display" : "none"});
+                        $(".popp5").hide();
+                        $(".popp2").hide();
+                    })
+
+                }else if(data.result=='-1'){
+
+                    $(".pop").css({"display" : "block"});
+                    msgReminder(data.resultMessage);
+                    $(".toast1").css({"display" : "block"});
+                    $(".sureBtn1").bind("touchstart",function(){
+                        $(".pop").css({"display" : "none"});
+                        $(".toast1").css({"display" : "none"});
+                        $(".popp5").hide();
+                        $(".popp2").hide();
+                    })
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert('网络错误，请稍后再试~');
+                // alert(XMLHttpRequest.readyState+"--"+XMLHttpRequest.status+"--"+textStatus);
+            }
+        });
+
+    });
+
+
+    $("#five").bind("touchstart",function(event){
+
+        $.ajax({
+            type: 'GET',
+            data: {
+                activityCode:'a004',
+            },
+            url: "/ccdai/api/actPartition/receiveCoupons.htm",
+            dataType: 'json',
+            beforeSend:function(){
+                $('.loading').show();
+                $(".popp18").show();
+                $(".popp2").show();
+            },
+            complete:function(){
+                $('.loading').hide();
+            },
+            success: function(data) {
+
+                if(data.result=='0'){
+                    $(".pop").css({"display" : "block"});
+                    $(".toast2").css({"display" : "block"});
+                    $(".toast2 .obtain").css("background-image","url(//mobiccdai.ppdaicdn.com/source/wechat/image/sucessfive.png)");
+                    $("#num").html("5");
+                    $(".sureBtn2").bind("touchstart",function(){
+                        $(".pop").css({"display" : "none"});
+                        $(".toast2").css({"display" : "none"});
+                        $(".popp18").hide();
+                        $(".popp2").hide();
+                    })
+                }else if(data.result=='-1'){
+                    $(".pop").css({"display" : "block"});
+                    msgReminder(data.resultMessage);
+                    $(".toast1").css({"display" : "block"});
+                    $(".sureBtn1").bind("touchstart",function(){
+                        $(".pop").css({"display" : "none"});
+                        $(".toast1").css({"display" : "none"});
+                        $(".popp18").hide();
+                        $(".popp2").hide();
+                    })
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert('网络错误，请稍后再试~');
+                // alert(XMLHttpRequest.readyState+"--"+XMLHttpRequest.status+"--"+textStatus);
+            }
+        });
+    });
+
+    $("#two").bind("touchstart",function(event){
+
+        $.ajax({
+            type: 'GET',
+            data: {
+                activityCode:'a005',
+            },
+            url: "/ccdai/api/actPartition/receiveCoupons.htm",
+            dataType: 'json',
+            beforeSend:function(){
+                $('.loading').show();
+                $(".popp18").show();
+                $(".popp5").show();
+            },
+            complete:function(){
+                $('.loading').hide();
+            },
+            success: function(data) {
+
+                if(data.result=='0'){
+                    $(".pop").css({"display" : "block"});
+                    $(".toast2").css({"display" : "block"});
+                    $(".toast2 .obtain").css("background-image","url(//mobiccdai.ppdaicdn.com/source/wechat/image/sucesstwo.png)");
+                    $("#num").html("2");
+                    $(".sureBtn2").bind("touchstart",function(){
+                        $(".pop").css({"display" : "none"});
+                        $(".toast2").css({"display" : "none"});
+                        $(".popp18").hide();
+                        $(".popp5").hide();
+                    })
+                }else if(data.result=='-1'){
+                    $(".pop").css({"display" : "block"});
+                    msgReminder(data.resultMessage);
+                    $(".toast1").css({"display" : "block"});
+                    $(".sureBtn1").bind("touchstart",function(){
+                        $(".pop").css({"display" : "none"});
+                        $(".toast1").css({"display" : "none"});
+                        $(".popp18").hide();
+                        $(".popp5").hide();
+                    })
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert('网络错误，请稍后再试~');
+                // alert(XMLHttpRequest.readyState+"--"+XMLHttpRequest.status+"--"+textStatus);
+            }
+        });
+    });
+
+
+    var msgReminder=function(txt){
+        var _html = "";
+        _html += "<div class='toast1'>";
+        _html += "<div class='leadimg'></div>";
+        _html += "<div class='coupon'>";
+        _html += " <p> "+txt+"</p>";
+        _html += " <div class='sureBtn1'>确定</div>";
+        _html += "</div></div>";
+        $(_html).appendTo($('body'));
+
+    }
+
+
+
+
+    //PV 统计
+    var _vds = _vds || [];
+    window._vds = _vds;
+    (function () {
+        _vds.push(['setAccountId', 'b9598a05ad0393b9']);
+        (function () {
+            var vds = document.createElement('script');
+            vds.type = 'text/javascript';
+            vds.async = true;
+            vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(vds, s);
+        })();
+    })();
+
+</script>
