@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+    <title>话题竞猜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/guess/css/topic.css">
+</head>
+<style>
+  body{
+  max-width: 640px;
+  min-width: 320px;
+ font-size: 62.5%;
+  }
+ .result_detail em{ 
+  font-style: normal;
+ }
+.firstrule_detail{
+    padding: 2%;
+    font-size: 1rem;
+    display: none;
+}
+.last_result0{
+    font-size: 1rem;
+}
+  .content .yes .result,.content .no .result{
+      width: 60%;
+  }
+  .txtmessage{ width: 260px; text-align: center;position: relative;
+      height: 50px; box-sizing:border-box; background: #0f0e0e;
+      color:#fff;line-height: 50px;
+      border-radius: 5px; position: fixed; left: 50%; top: 50%;
+      margin-left: -130px; margin-top: -80px;
+      z-index: 300;    font-size: 1.2rem;}
+  .firstrule_detail .rule_title{
+      text-align: center;
+      font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 340px) {
+      #mypoint {
+          font-size: 0.8rem;
+          line-height: 30px;
+      }
+  }
+  
+ 
+</style>
+<body>
+<div class="topic">
+	<div class="topic_left">押少数方，赢双倍奖金</div>
+	<div class="rule" onclick="GUESS.showRule()";> <img src="//mobiccdai.ppdaicdn.com/source/guess/tips.png">规则说明</img></div>
+</div>
+<div style="clear:both"></div>
+<div class="content">
+   <p class="title"></p>
+  <div class="yes" id="yes" onclick="GUESS.showYes();"> 
+   <p class="affirmativeViewPoint"> </p>
+   <div class="yes_content"></div>
+   <div class="result">已竞猜×<span id="affirmativeBetOn">  </span></div>
+  </div>
+  <div class="no" id="no" onclick="GUESS.showNo();">
+   <p class="negativeViewPoint"></p>
+   <div class="no_content"></div>
+    <div class="result">已竞猜×<span id="negativeBetOn">  </span></div>
+  </div>
+</div>
+<div style="clear:both"></div>
+<div class="if_last">
+
+    <div class="last_topic"></div>
+    <div class="last_result0">
+     <div class="result_last">
+       <p>上期结果</p>
+     </div>
+     <div class="result_detail">
+      <p> <span class="blue" id="aff_blue">蓝方<em id="affirmativeCount">  </em>注</span>
+         <span class="red"  id="neg_red">红方<em id="negativeCount">  </em>注</span>
+        </p>
+      <p class="last_content">  </p>
+     </div>
+    </div>
+    <div class="last_result1">
+      <div class="result_good">
+       <p>上期最佳</p>
+      </div>
+       <div class="result_name">
+       <p><span id="bestuser">  </span>赢得<span id="bestReward">  </span>赏金</p>
+       </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="last_result2">
+      <div class="result_me">
+       <p>我的竞猜</p>
+      </div>
+       <div class="result_medetail">
+       <p id="mypoint">红方100注,蓝方100注,共输赢200积分</p>
+       </div>
+    </div>
+</div>
+<div style="clear:both"></div>
+<div class="guess_service" onclick="GUESS.showDetail();">
+    <span id="guess" >我要竞猜</span></img>
+</div>
+
+
+<div class="bg"></div>
+<div class="rule_detail">
+ <div class="rule_title">规则说明</div>
+ <p><span>游戏规则</span><br />
+   <span>话题分为两方观点，选择你认为是少数一方的观点进行押注。押注量少一方获胜，奖励押注赏金翻倍。</span>
+ </p>
+ <p><span>押注规则</span><br />
+   <span>每注花费XX赏金，可以多次押注，也可以同时押注两方。确认押注一概不能反悔哦。</span>
+ </p>
+ <p><span>活动时间</span><br />
+   <span>每天00:00-24:00,话题结束后揭晓获胜方观点，获胜的赏金将在24内到账。</span>
+ </p>
+ <button class="sure" onclick="GUESS.hideRule();">确定</button>
+</div>
+
+<div class="firstrule_detail">
+    <div class="rule_title">规则说明</div>
+    <p><span>游戏规则</span><br />
+        <span>话题分为两方观点，选择你认为是少数一方的观点进行押注。押注量少一方获胜，奖励押注赏金翻倍。</span>
+    </p>
+    <p><span>押注规则</span><br />
+        <span>每注花费XX赏金，可以多次押注，也可以同时押注两方。确认押注一概不能反悔哦。</span>
+    </p>
+    <p><span>活动时间</span><br />
+        <span>每天00:00-24:00,话题结束后揭晓获胜方观点，获胜的赏金将在24内到账。</span>
+    </p>
+</div>
+
+
+<div class="guess_activity">
+ <div class="activity_title"> 
+   <div class="close_img" onclick="GUESS.hideGuess();"><img src="//mobiccdai.ppdaicdn.com/source/guess/close1.png"></img></div>
+   <span>我要竞猜</span>
+   <div style="clear:both"></div>
+ </div>
+ <div class="activity_red"> 
+   <div class="guess_red">猜红方</div>
+   <div class="guess_chosen">
+   <div id="minus_red"><img src="//mobiccdai.ppdaicdn.com/source/guess/min.png"></img></div>
+   <div id="num_red">0</div>
+   <div id="add_red"><img src="//mobiccdai.ppdaicdn.com/source/guess/add.png"></img></div></div>
+    <div style="clear:both"></div>
+ </div>
+
+ <div class="activity_blue"> 
+  <div class="guess_blue">猜蓝方</div>
+  <div class="guess_chosen">
+    <div id="minus_blue"> <img src="//mobiccdai.ppdaicdn.com/source/guess/min.png"></img></div>
+    <div id="num_blue">0</div>
+    <div id="add_blue"><img src="//mobiccdai.ppdaicdn.com/source/guess/add.png"></img></div></div>
+  <div style="clear:both"></div>
+ </div>
+
+  <div class="need_num">需赏金 (个): <span id="need_num"></span></div> 
+  <div class="current_num">当前赏金 (个):<span id="current_integration"></span> </div>
+  <button class="sure" id="conutnum"" onclick="GUESS.countNum();">确定</button>
+</div>
+
+<input type="hidden" name="guessid" id="localid"  value=""> 
+<input type="hidden" name="guesspoint"  id="guesspoint"  value=""> 
+
+
+<div class="guess_yes">
+ <div class="activity_title"> 
+   <div class="close_img" onclick="GUESS.hideGuessYes();"><img src="//mobiccdai.ppdaicdn.com/source/guess/close1.png"></img></div>
+   <span>我要竞猜</span>
+   <div style="clear:both"></div>
+ </div>
+  <div class="activity_blue"> 
+  <div class="guess_blue">猜蓝方</div>
+  <div class="guess_chosen">
+    <div id="minus_blueyes"> <img src="//mobiccdai.ppdaicdn.com/source/guess/min.png"></img></div>
+    <div id="num_blueyes">0</div>
+    <div id="add_blueyes"><img src="//mobiccdai.ppdaicdn.com/source/guess/add.png"></img></div></div>
+  <div style="clear:both"></div>
+ </div>
+
+  <div class="need_numyes">需赏金 (个):<span id="need_numyes"></span></div> 
+  <div class="current_numyes">当前赏金 (个):<span id="current_integrationyes"></span></div>
+  <button class="sure" id="countnumblue" onclick="GUESS.countNumBlue();">确定</button>
+</div>
+
+<div class="guess_no">
+ <div class="activity_title"> 
+   <div class="close_img" onclick="GUESS.hideGuessNo();"><img src="//mobiccdai.ppdaicdn.com/source/guess/close1.png"></img></div>
+   <span>我要竞猜</span>
+   <div style="clear:both"></div>
+ </div>
+  <div class="activity_red"> 
+   <div class="guess_red">猜红方</div>
+   <div class="guess_chosen">
+   <div id="minus_redno"><img src="//mobiccdai.ppdaicdn.com/source/guess/min.png"></img></div>
+   <div id="num_redno">0</div>
+   <div id="add_redno"><img src="//mobiccdai.ppdaicdn.com/source/guess/add.png"></img></div></div>
+    <div style="clear:both"></div>
+ </div>
+  <div class="need_numno">需赏金 (个):<span id="need_numno"></span></div> 
+  <div class="current_numno">当前赏金 (个):<span id="current_integrationno"></span></div>
+  <button class="sure" id="countnumred" onclick="GUESS.countNumRed();">确定</button>
+</div>
+
+ 	
+</body>
+</html>
+
+ <script src="/js/jquery.min.js"></script>
+ <script>
+ 
+	 var lastGuessId,currentGuessId,integration,Unitpoints;
+	 //const Unitpoints=20;
+	 
+	   var GUESS={
+			  showDetail:function(){
+		        $('.bg').fadeIn();
+				$('.guess_activity').fadeIn();
+				$("#conutnum").removeAttr("disabled");
+                  GetIntegration();
+				$("#current_integration").html(integration);
+		        },
+		      showRule:function(){
+		         $('.bg').fadeIn();
+				 $('.rule_detail').fadeIn();
+		        },
+			 hideRule:function(){
+		         $('.bg').fadeOut();
+				 $('.rule_detail').fadeOut();
+		        },
+			 hideGuess:function(){
+			    $('.bg').fadeOut();
+				$('.guess_activity').fadeOut();
+			 },
+			 showYes:function(){
+			     $('.bg').fadeIn();
+				 $('.guess_yes').fadeIn();
+                 $("#countnumblue").removeAttr("disabled");
+                 GetIntegration();
+                 $("#current_integrationyes").html(integration);
+			 },
+			 showNo:function(){
+			    $('.bg').fadeIn();
+				$('.guess_no').fadeIn();
+				$("#countnumred").removeAttr("disabled");
+                 GetIntegration();
+                 $("#current_integrationno").html(integration);
+			 },
+			 hideGuessYes:function(){
+			     $('.bg').fadeOut();
+				 $('.guess_yes').fadeOut();
+			 
+			 },
+			 hideGuessNo:function(){
+			    $('.bg').fadeOut();
+				$('.guess_no').fadeOut();
+			 },
+			 countNum:function(){ 
+				 var numred=$("#num_red").html();
+				 var numblue=$("#num_blue").html();
+				 var total=parseInt(numred)+parseInt(numblue);
+                 // checkGuessPoint(total,integration);
+                 var if_true= checkGuessPoint(total,integration);
+                 if(if_true !=false && if_true !=0.1){
+			       getData("/ccdai/api/guess/betOnGuess.htm?guessId="+currentGuessId+"&affirmativeBetOn="+numred+"&negativeBetOn="+numblue,{},function(json) {
+			       })
+                     $("#conutnum").attr({"disabled":"disabled"});
+                     alertMessage("已发送");
+                 }else if(if_true ==false ){
+                     alertMessage("当前积分不足");
+                 }else{
+                     alertMessage("尚未选择正反方,请确认");
+                 }
+                 window.setTimeout(function(){
+                     $(".guess_activity").fadeOut(500);
+                     $(".bg").fadeOut(500);
+                 },1000)
+		       },
+		       countNumBlue:function(){
+		  		   var numblueyes=$("#num_blueyes").html();
+                   var if_true= checkGuessPoint(numblueyes,integration);
+                   if(if_true !=false && if_true !=0.1) {
+                       getData("/ccdai/api/guess/betOnGuess.htm?guessId=" + currentGuessId + "&affirmativeBetOn=" + numblueyes, {}, function (json) {
+                       })
+                       $("#countnumblue").attr({"disabled":"disabled"});
+                       alertMessage("已发送");
+                   }else if(if_true ==false ){
+                       alertMessage("当前积分不足");
+                   }else{
+                       alertMessage("尚未选择,请确认");
+                   }
+                   window.setTimeout(function(){
+                       $(".guess_yes").fadeOut(500);
+                       $(".bg").fadeOut(500);
+                   },1000)
+
+		       },
+		       countNumRed:function(){
+		  		 var numredno=$("#num_redno").html();
+                 var if_true= checkGuessPoint(numredno,integration);
+                 if(if_true !=false && if_true !=0.1){
+                     getData("/ccdai/api/guess/betOnGuess.htm?guessId="+currentGuessId+"&negativeBetOn="+numredno,{},function(json){})
+                     $("#countnumred").attr({"disabled":"disabled"});
+                     alertMessage("已发送");
+                 }else if(if_true ==false ){
+                     alertMessage("当前积分不足");
+                 }else{
+                     alertMessage("尚未选择,请确认");
+                 }
+                   window.setTimeout(function(){
+                       $(".guess_no").fadeOut(500);
+                       $(".bg").fadeOut(500);
+                   },1000)
+
+		       },
+		       
+		   }
+
+     function checkGuessPoint(num,currentnum) {
+	       checknum=parseInt(num)*Unitpoints;
+	       currentpoint=parseInt(currentnum);
+	       if(checknum<=0){
+             //  alertMessage("尚未选择正反方,请选择");
+               return 0.1;
+           }else if(checknum>currentpoint){
+	          // alertMessage("当前积分不足,请重新选择");
+	           return false;
+           }
+
+     }
+     function alertMessage(txt) {
+         var __html = " <div class='txtmessage'>"+txt+"</div>";
+         $(__html).appendTo($('body'));
+         window.setTimeout(function(){
+             var $msg = $('.txtmessage');
+             $msg.fadeOut(2000);
+         },1000)
+
+     }
+
+	 function getData(url,data,callback,isasync){
+		  $.ajax({
+		     async:(isasync==undefined?false:isasync),
+		     url: url,
+		     type: "GET",
+		     //dataType: 'jsonp',
+		     data: data,
+		     success:callback
+		  });
+		}
+
+
+	  getData("/ccdai/api/guess/guessInfo.htm",{},function(data){
+		  var _data = $.parseJSON(data);
+         	if(_data.result==0){
+         		
+       		 $(".title").html(_data.content.guessInfo.currentGuessInfo.guessTitle);
+       		 $(".yes_content").html(_data.content.guessInfo.currentGuessInfo.affirmativeViewPointDetail);
+       		 $(".no_content").html(_data.content.guessInfo.currentGuessInfo.negativeViewPointDetail);
+       		 $(".affirmativeViewPoint").html(_data.content.guessInfo.currentGuessInfo.affirmativeViewPoint);
+       		 $(".negativeViewPoint").html(_data.content.guessInfo.currentGuessInfo.negativeViewPoint);
+       		 $("#affirmativeBetOn").html(_data.content.affirmativeBetOn);
+       		 $("#negativeBetOn").html(_data.content.negativeBetOn);
+       		  currentGuessId=_data.content.guessInfo.currentGuessInfo.guessId;
+       		 var lastGuessInfo=_data.content.guessInfo.lastGuessInfo;
+       		 var myPoint="红方"+_data.content.lastGuessAffirmativeBetOn+"注,蓝方"+_data.content.lastGuessNegativeBetOn+"注,共输赢"+_data.content.lastGuessResultIntegral+"积分";
+       		 $("#mypoint").html(myPoint);
+                Unitpoints=_data.content.guessInfo.currentGuessInfo.integral;
+       		 if(null!=lastGuessInfo && ""!= lastGuessInfo){
+                 $(".last_topic").html(_data.content.guessInfo.lastGuessInfo.lastGuessTitle);
+                 $(".last_content").html(_data.content.guessInfo.lastGuessInfo.resultDetail);
+                 $("#bestuser").html(_data.content.guessInfo.lastGuessInfo.bestBetOnUser);
+                 $("#bestReward").html(_data.content.guessInfo.lastGuessInfo.bestBetOnRewardIntegral);
+                 $("#negativeCount").html(_data.content.guessInfo.lastGuessInfo.negativeCount);
+                 $("#affirmativeCount").html(_data.content.guessInfo.lastGuessInfo.affirmativeCount);
+
+                 var aff_width=parseInt(_data.content.guessInfo.lastGuessInfo.affirmativeCount/(_data.content.guessInfo.lastGuessInfo.affirmativeCount+_data.content.guessInfo.lastGuessInfo.negativeCount)*100);
+                 var neg_width=100-aff_width;
+                 $(".result_detail .blue").width(aff_width+"%");
+                 $(".result_detail .red").width(neg_width+"%");
+                  lastGuessId=_data.content.guessInfo.lastGuessInfo.lastGuessId;
+             }else{
+                  $(".if_last").hide();
+                  $(".firstrule_detail").show();
+             }
+         	}else if(_data.result=='-1'){
+         		alert(_data.resultMessage);
+         	}
+        },false);
+	  function GetIntegration() {
+          getData("/ccdai/api/guess/availablePoint.htm",{},function(data){
+              var data = $.parseJSON(data);
+              if(data.result=='0'){
+                  integration=data.content;
+              }else if(data.result=='-1'){
+                  alert(data.resultMessage);
+              }
+          },false);
+      }
+
+     GetIntegration();
+
+
+     //数据统计接口
+     getData("/ccdai/api/dataStatistics/dataStatistics.htm?classify=2&statisticsType=guess_center&extension="+integration,{},function(data){
+
+     },false);
+
+
+	
+
+	$("#add_red").click(function(){
+	  $("#num_red").html(parseInt($("#num_red").html())+1);
+	  $("#need_num").html( (parseInt($("#num_red").html())+parseInt($("#num_blue").html()))*Unitpoints );
+	});	
+	$("#minus_red").click(function(){
+	 if(parseInt($("#num_red").html()-1)<0){ return false; }//$("#num_red").html()='0';
+	 else{$("#num_red").html(parseInt($("#num_red").html())-1);}
+	  $("#need_num").html( (parseInt($("#num_red").html())+parseInt($("#num_blue").html()))*Unitpoints );
+	});
+    $("#add_blue").click(function(){
+	   $("#num_blue").html(parseInt($("#num_blue").html())+1);
+	   $("#need_num").html( (parseInt($("#num_red").html())+parseInt($("#num_blue").html()))*Unitpoints );
+    });
+	$("#minus_blue").click(function(){
+	 if(parseInt($("#num_blue").html()-1)<0){return false;}
+	 else{$("#num_blue").html(parseInt($("#num_blue").html())-1);}
+	  $("#need_num").html( (parseInt($("#num_red").html())+parseInt($("#num_blue").html()))*Unitpoints );
+	});
+	
+	
+	$("#add_redno").click(function(){
+      $("#num_redno").html(parseInt($("#num_redno").html())+1);
+      $("#need_numno").html( parseInt($("#num_redno").html())*Unitpoints );
+	});
+
+	$("#minus_redno").click(function(){
+	 if(parseInt($("#num_redno").html()-1)<0){return false;}
+	 else{$("#num_redno").html(parseInt($("#num_redno").html())-1);}
+	  $("#need_numno").html( parseInt($("#num_redno").html())*Unitpoints );
+	});
+	
+    $("#add_blueyes").click(function(){
+	  $("#num_blueyes").html(parseInt($("#num_blueyes").html())+1);
+	  $("#need_numyes").html( parseInt($("#num_blueyes").html())*Unitpoints );
+	});
+	$("#minus_blueyes").click(function(){
+	 if(parseInt($("#num_blueyes").html()-1)<0){$("#num_blueyes").html()='0';}
+	 else{$("#num_blueyes").html(parseInt($("#num_blueyes").html())-1);}
+	  $("#need_numyes").html( parseInt($("#num_blueyes").html())*Unitpoints );
+	});
+	
+	
+ 
+   
+
+
+
+</script>
