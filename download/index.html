@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>最快10分钟</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="//m.ppdaicdn.com/act/ccdl/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="//m.ppdaicdn.com/act/ccdl/css/style.css">
+    <style media="screen">
+      .btn{
+        width: 86%;
+        background: #ffe558;
+        height: 50px;
+        border-radius: 26px;
+        line-height: 50px;
+        color: #84350f;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 20px 7%;
+        -moz-box-shadow:3px 4px 0px #e27100;
+        box-shadow: 3px 4px 0px #e27100;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="//m.ppdaicdn.com/act/ccdl/img/banner.png" class="banner">
+    </header>
+    <div class="cont">
+        <img src="//m.ppdaicdn.com/act/ccdl/img/text.png" class="text">
+        <div class="num"><span id="amount" class="amount">3,152,672,400</span>元</div>
+        <div class='phone'>
+            <label>手机号</label>
+            <input type="tel" maxLength="11" placeholder="请输入常用手机号" name="phoneNum" class="phoneNum" id="num1"/>
+        </div>
+        <div class="downLoad btn" id="btn">
+            立即下载
+        </div>
+    </div>
+	  <footer style="line-height:20px;color:#fff;font-size:12px;text-align:center;">
+      <p>© 2017 上海拍拍贷金融信息服务有限公司 版权所有</p>
+      <p>投资有风险，贷款需谨慎</p>
+    </footer>
+    <script src="//m.ppdaicdn.com/act/ccdl/js/jquery.min.js"></script>
+    <script>
+
+    //获取渠道参数；
+    var flag;
+    var mob1;
+    var _src = GetQueryString("source");
+        _src = !_src ? "" : _src;
+    var channel = 'number';
+
+    //获取页面url参数；
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r!=null) return (r[2]); return null;
+    }
+    var  isWeiXin = function() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var isWx       = isWeiXin(),
+        isiOS      = navigator.userAgent.match('iPad')
+                     || navigator.userAgent.match('iPhone')
+                     || navigator.userAgent.match('iPod'),
+         dlurl =  GetQueryString("url"),
+         iosURL     = !dlurl ? "https://itunes.apple.com/cn/app/id1104239394" : dlurl,
+        isAndroid  = navigator.userAgent.match('Android');
+    var os = isiOS ? "ios" : "Android";
+   var downLoad= function(){
+            if (isWx) {
+                window.location.href="//m.ppdai.com/act/caocao/down.html?source="+_src+"&url="+dlurl;
+            }else if(isiOS){
+                window.location.href=iosURL;
+            }else{
+                var Url = "//m.ppdai.com/Down/CaoCaoLoan/"+_src;
+                window.location.href=Url;
+            }
+        };
+    //点击传值并下载；
+   $('#btn').on('click',function(){
+        var mob1 = $.trim($(this).prev().find('input').val());
+        if(mob1 ==""){
+            $(this).prev().find('input').attr('placeholder','请先输入手机号~').addClass('redPlhd');
+            return;
+        }else if(!/^(13|14|15|17|18)[0-9]{9}$/.test(mob1)){
+            $(this).prev().find('input').val('').attr('placeholder','请输入正确的手机号~');
+            return;
+        }
+        $.ajax({
+                type :'get',
+                async: false,
+                dataType: 'JSONP',
+                url  :"//mobiccdai.ppdai.com/ccdai/api/distribute/saveDownloadRecord.htm",
+                     //"//192.168.30.69:8020/ccdai-front/ccdai/api/distribute/saveDownloadRecord.htm?",
+                data : {mobile:mob1,channel:channel,subChannel:_src,os:os,sendMsg:false},
+                success: function(data){
+                    data =$.parseJSON(data);
+                    if(data.result == 0){
+                        console.log('请求成功');
+                       downLoad();
+                    }else{
+                        console.log("返回失败");
+                        downLoad();
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown){
+                    console.log("请求失败");
+                    downLoad();
+                }
+            })
+    })
+     //数字累加效果
+    var currentNum = parseInt($("#amount").html().replace(/\,/g,''));
+    setInterval("jump()",1500);
+    function jump(){
+        currentNum += 400;
+        $("#amount").html(thousands(currentNum));
+    }
+    //千位分隔符；
+    function thousands(num){
+            num = num.toString();
+            if(/^-?\d+\.?\d+$/.test(num)){
+                if(/^-?\d+$/.test(num)){
+                    num =num + ",00";
+                }else{
+                    num = num.replace(/\./,',');
+                }
+                while(/\d{4}/.test(num)){
+                    num = num.replace(/(\d+)(\d{3}\,)/,'$1,$2');
+                }
+                num = num.replace(/\,(\d*)$/,'');
+            }
+            return num;
+        }
+    </script>
+</body>
+</html>
