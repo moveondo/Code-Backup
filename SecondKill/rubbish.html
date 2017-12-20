@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>曹操贷-最快10分钟放款</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta itemprop="name" content="新用户享免息贷款！手慢无！">
+    <meta itemprop="description" content="拍拍贷旗下明星产品，无门槛零担保，最快30分钟到账，快来抢免息名额......">
+    <meta itemprop="image" content="https://m.ppdaicdn.com/img/ccdlogo.png">
+    <!--<link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/spike/css/bootstrap.css">-->
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent
+        }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 62.5%;
+            line-height: 20px;
+            color: #333333;
+            background-color: #880ead;
+        }
+        img{
+            width: 100%;
+            vertical-align: middle;
+            border: 0;
+        }
+        .section1{
+            background: linear-gradient(to  right, #7f159c, #ea3d6b);
+        }
+        button{
+            cursor: pointer;
+            border: none;
+        }
+
+
+        /*.cutdown{*/
+        /*width: 94%;*/
+        /*margin: 0 auto;*/
+        /*display: block;*/
+        /*position: relative;*/
+        /*text-align: center;*/
+
+        /*}*/
+        /*.cutdown .cut{*/
+        /*height: 140px;*/
+        /*}*/
+        /*.cutdown .desc{*/
+        /*position: absolute;*/
+        /*top: 5px;*/
+        /*width: 100%;*/
+
+        /*}*/
+        .desc{
+            background: url("//mobiccdai.ppdaicdn.com/source/spike/image/countdown.png") no-repeat;
+            width: 96%;
+            margin: 0 2%;
+            padding: 2% 0;
+            background-size: cover;
+        }
+        .desc p{
+            text-align: center;
+            color: #fff;
+        }
+        .desc .time{
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .sign{
+            padding: 0 2px;
+        }
+        .sign img{
+            width: 10px;
+        }
+        .clock{
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        .clock img{
+            width: 17px;
+            height: 17px;
+        }
+        .clock p{
+            margin-left: 5px;
+        }
+        .start{
+            background: #ee0671;
+            color: #fff;
+            padding:0 1%;
+            width: 28%;
+            text-align: center;
+        }
+        .process{
+            display: flex;
+            font-size: 0.5rem;
+            justify-content: center;
+            margin: 10px auto;
+        }
+        .apply{
+            background: #ffe53b;
+            width: 70%;
+            margin: 10px 15%;
+            border-radius: 4px;
+            height: 30px;
+            line-height: 30px;
+            color: #f43a01;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .section2{
+            background: #7824f6;
+            width: 94%;
+            margin: 20px auto;
+        }
+        .supreme,.advanced,.rule{
+            text-align: center;
+            padding: 10px 0;
+        }
+        .supreme img,.advanced img ,.rule img{
+            width: 67%;
+        }
+        .mystery{
+            padding: 10px;
+            display: flex;
+            background: #894fe1;
+        }
+        .mysteryimg{
+            width: 48%;
+        }
+        .mysterytext{
+            color: #fff;
+            margin-left: 10px;
+        }
+        .biggift{
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .but {
+            background: #c5c5c5;
+            width: 87%;
+            height: 30px;
+            line-height: 25px;
+            color: #fff;
+            border-radius: 4px;
+        }
+        .line{
+            margin: 5% 0;
+        }
+        .advancedcontent{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background: #894fe1;
+            padding: 10px 10px 20px;
+        }
+        .eighteen,.membership,.two,.recharge{
+            width: 45%;
+            background: #fff;
+            text-align: center;
+        }
+        .eighteen img,.membership img,.two img,.recharge img{
+            width: 90%;
+            margin-top: 6px;
+        }
+        .eighteen p,.membership p,.two p,.recharge p{
+            text-align: left;
+            padding-left: 5px;
+            font-size: 1rem;
+        }
+        .two ,.recharge{
+            margin-top: 10px;
+        }
+        .finished{
+            background: #c5c5c5;
+            width: 87%;
+            height: 30px;
+            color: #fff;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .imde{
+            background: #f43a01;
+            border: #f43a01;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        .rulecontent{
+            color: #fff;
+            padding: 10px;
+            font-size: 0.8rem;
+            line-height: 20px;
+        }
+
+        /*totast*/
+        .pop{
+            position:fixed;
+            top:0;left:0;right:0;bottom:0;
+            background-color:#000;
+            opacity: 0.6;
+            z-index: 4;
+            display:none;
+        }
+        .toast {
+            display: none;
+            width: 75%;
+            height: 35%;
+            position:fixed;
+            top:35%;
+            left:50%;
+            -webkit-transform:translate(-50%,-50%);
+            transform:translate(-50%,-50%);
+            box-sizing:border-box;
+            z-index:5;
+            border-radius: 8px;
+            color:#333;
+            text-align:center;
+        }
+        .toast .copywriter {
+            background: #fff;
+            padding: 3% 1% 10%;
+            width: 101%;
+        }
+        .toast p{
+            font-size: 1.2rem;
+            padding: 10% 0;
+        }
+        .toast .obtain{
+            height: 98px;
+            width: 105%;
+            background: url("//mobiccdai.ppdaicdn.com/source/spike/image/totast.png") no-repeat;
+            background-size:cover;
+            margin-left: -2%;
+        }
+        .toast .sureBtn {
+            width: 41%;
+            height: 40px;
+            border-top: 1px solid #ccc;
+            font-size: 1.2rem;
+            line-height: 41px;
+            background-color: #ff673e;
+            color: #fff;
+            border-radius: 58px;
+            margin: 0 auto;
+            letter-spacing: 4px;
+        }
+        .loading{position:fixed;background:#000;opacity:.8;padding:5px;border-radius:4px;left:40%;top:50%;margin-top:-25px;margin-left:-25px;}
+
+        input.red{
+            color:#f00;
+        }
+        @media screen and (max-width: 360px) {
+            .cutdown .cut {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <img src="//mobiccdai.ppdaicdn.com/source/spike/image/banner.png" >
+</div>
+<section class="section1">
+
+    <div class="desc">
+        <div class="clock">
+            <img src="//mobiccdai.ppdaicdn.com/source/spike/image/clock.png" >
+            <p id="Distance">距离秒杀</p>
+        </div>
+
+        <p class="time" id="time">00:00:00</p>
+        <div class="process">
+            <div class="start">
+                9月11日报名开始
+            </div>
+            <div class="sign">
+                <img src="//mobiccdai.ppdaicdn.com/source/spike/image/sign.png" >
+            </div>
+            <div class="start">
+                9月14日进阶区秒杀
+            </div>
+            <div class="sign">
+                <img src="//mobiccdai.ppdaicdn.com/source/spike/image/sign.png" >
+            </div>
+            <div class="start">
+                9月21日至尊区秒杀
+            </div>
+        </div>
+        <button class="apply" id="apply" >报名参加此活动</button>
+    </div>
+</section>
+<section class="section2">
+    <div class="supreme">
+        <img src="//mobiccdai.ppdaicdn.com/source/spike/image/supreme.png" >
+    </div>
+    <div class="mystery">
+        <div class="mysteryimg">
+            <img src="//mobiccdai.ppdaicdn.com/source/spike/image/Mystery.png" >
+        </div>
+        <div class="mysterytext">
+            <p class="biggift"> 神秘大礼 </p>
+            <div class="line">
+                <p class="mysterytime"> 9月21日上午10:00 </p>
+                <p class="three"> 进阶期成功满额借款3次 </p>
+            </div>
+            <button class="but" id="mystery"  onClick="HurrytoGrab(this)"> 今日已抢完 </button>
+        </div>
+    </div>
+
+    <div class="advanced">
+        <img src="//mobiccdai.ppdaicdn.com/source/spike/image/advanced.png" >
+    </div>
+    <div class="advancedcontent">
+        <div class="eighteen">
+            <img src="//mobiccdai.ppdaicdn.com/source/spike/image/eighteen.png" >
+            <p>18元优惠券</p>
+            <button class="finished" id="eighteen" >今日已抢完</button>
+        </div>
+        <div class="membership">
+            <img src="//mobiccdai.ppdaicdn.com/source/spike/image/membership .png" >
+            <p>爱奇艺会员月卡</p>
+            <button class="finished" id="membership" >今日已抢完</button>
+        </div>
+        <div class="two">
+            <img src="//mobiccdai.ppdaicdn.com/source/spike/image/two.png" >
+            <p>2元优惠券</p>
+            <button class="finished" id="two" >今日已抢完</button>
+        </div>
+        <div class="recharge">
+            <img src="//mobiccdai.ppdaicdn.com/source/spike/image/recharge.png" >
+            <p>50元话费</p>
+            <button class="finished" id="recharge" >今日已抢完</button>
+        </div>
+    </div>
+
+    <div class="rule">
+        <img src="//mobiccdai.ppdaicdn.com/source/spike/image/rule.png" >
+    </div>
+    <div class="rulecontent">
+        <p> 1、活动分为3个时间段：报名期（3天）、进阶秒杀期（7天）、至尊秒杀（5天）；</p>
+        <p>2、进阶区开放：每成功借款1次，拥有1次秒杀资格，可参与进阶区奖品秒杀；</p>
+        <p>3、至尊区开放：进阶期间成功满额借款3次用户即可参与至尊区奖品秒杀；</p>
+        <p>4、无论进阶期、至尊期，每类奖品每天上午10:00开秒，数量有限，秒完即止；</p>
+        <p>5、优惠券成功秒杀实时到账、其他奖励秒杀成功后，工作人员于活动结束后10个工作日内联系用户；</p>
+    </div>
+</section>
+
+
+<!--<div class='sure'>-->
+<!--<div class='seven'>-->
+<!--<p class='imed'>即将为你充值<span id="dollor"></span>元</p>-->
+<!--<p class='need'>7天后，您需还款<span id="dollor1"></span> 元</p>-->
+<!--</div>-->
+<!--<div class='if_sure'>-->
+<!--<div id='no'>取消</div>-->
+<!--<div id='yes'>确定</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="pop"></div>
+
+
+</body>
+</html>
+<script src="//mobiccdai.ppdaicdn.com/source/ccdcps4/js/jquery.min.js"></script>
+<script  runat="server" language="javascript">
+
+//    var StartTime=new Date('2017','8','11','10','00','00'); //报名开始
+//    var advancedTime=new Date('2017','8','14','10','00','00'); //7 就是8月 进阶开始时间
+//    var BeginTime=new Date('2017','8','21','10','00','00');//至尊区开始时间
+
+
+    var StartArr = "2017/09/11 10:00:00".split(/[- : \/]/);
+    var StartTime = new Date(StartArr[0], StartArr[1]-1, StartArr[2], StartArr[3], StartArr[4], StartArr[5]);
+    var advancedArr = "2017/09/14 10:00:00".split(/[- : \/]/);
+    var advancedTime = new Date(advancedArr[0], advancedArr[1]-1, advancedArr[2], advancedArr[3], advancedArr[4], advancedArr[5]);
+    var BeginArr = "2017/09/21 10:00:00".split(/[- : \/]/);
+    var BeginTime = new Date(BeginArr[0], BeginArr[1]-1, BeginArr[2], BeginArr[3], BeginArr[4], BeginArr[5]);
+    var endDate;
+
+
+    var minute1,second1;
+    //var now = new Date(); //客户端时间
+    var nowArr,EverySec;
+    var now=new Date();
+
+    function Gettime() {
+
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    nowArr=(data.content).split(/[- : \/]/);
+                    now = new Date(nowArr[0], nowArr[1]-1, nowArr[2], nowArr[3], nowArr[4], nowArr[5]);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+
+    }
+    Gettime();
+  var NowAutotime;
+   EverySec= now.getTime();
+  setInterval(function(){
+
+      EverySec+= 1000;
+      NowAutotime=new Date(EverySec);
+      
+      console.log(NowAutotime);
+   },1000);
+
+
+
+
+
+    function CheckTime() {
+        var nowArr;
+        var now;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    nowArr=(data.content).split(/[- : \/]/);
+                    now = new Date(nowArr[0], nowArr[1]-1, nowArr[2], nowArr[3], nowArr[4], nowArr[5]);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+        console.log(now,StartTime);
+        if(now<StartTime){
+            msgReminder("活动尚未开始");
+            return false;
+        }
+        if(now>=endDate){
+            msgReminder("活动已结束");
+            return false;
+        }
+        return true;
+    }
+
+    function CheckButtonColor() {
+        var nowArr;
+        var now;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    nowArr=(data.content).split(/[- : \/]/);
+                    now = new Date(nowArr[0], nowArr[1]-1, nowArr[2], nowArr[3], nowArr[4], nowArr[5]);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+
+        var hours = now.getHours();
+
+        if(now<advancedTime){
+            $("#Distance").html("距离秒杀开始")
+        }
+        if(now>=advancedTime){
+            $("#Distance").html("距离秒杀结束")
+        }
+        console.log("CheckButtonColor1"+now,BeginTime,advancedTime,hours)
+        if(now<advancedTime){
+            $("#eighteen").html("未开始");$("#eighteen").removeClass("imde"); $("#eighteen").attr('disabled',false);
+            $("#two").html("未开始");$("#two").removeClass("imde");$("#two").attr('disabled',false);
+            $("#membership").html("未开始");$("#membership").removeClass("imde");$("#membership").attr('disabled',false);
+            $("#recharge").html("未开始");$("#recharge").removeClass("imde");$("#recharge").attr('disabled',false);
+            $("#mystery").html("未开始");$("#eighteen").removeClass("imde");$("#eighteen").attr('disabled',false);
+        }else if(now>=advancedTime && now < BeginTime ){
+            $("#mystery").html("未开始");$("#mystery").removeClass("imde");$("#mystery").attr('disabled',false);
+        }
+        if(now>=advancedTime && now < BeginTime && hours< 10){
+            $("#eighteen").html("未开始");$("#eighteen").removeClass("imde");$("#eighteen").attr('disabled',false);
+            $("#two").html("未开始");$("#two").removeClass("imde");$("#two").attr('disabled',false);
+            $("#membership").html("未开始");$("#membership").removeClass("imde");$("#membership").attr('disabled',false);
+            $("#recharge").html("未开始");$("#recharge").removeClass("imde");$("#recharge").attr('disabled',false);
+        }
+        if( now>=new Date(2017,8,21,00,00,00)){
+            $("#eighteen").html("已结束");$("#eighteen").removeClass("imde");$("#eighteen").attr('disabled',false);
+            $("#two").html("已结束");$("#two").removeClass("imde");$("#two").attr('disabled',false);
+            $("#membership").html("已结束");$("#membership").removeClass("imde");$("#membership").attr('disabled',false);
+            $("#recharge").html("已结束");$("#recharge").removeClass("imde");$("#recharge").attr('disabled',false);
+        }
+        if(now>=BeginTime && hours<10){
+            $("#mystery").html("未开始");$("#mystery").removeClass("imde");$("#mystery").attr('disabled',false);
+        }
+
+    }
+
+
+    var timeTask=setInterval(function(){
+
+        var nowArr,now;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    nowArr=(data.content).split(/[- : \/]/);
+                    now = new Date(nowArr[0], nowArr[1]-1, nowArr[2], nowArr[3], nowArr[4], nowArr[5]);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+
+        var h=now.getHours();
+        var m=now.getMinutes();
+        var s=now.getSeconds();
+        if(h==10&&m==0&&s==0){   //设置自动刷新
+            secKillPageLoad();
+        }
+    },1000);
+
+    var interval = 1000;
+    function ShowCountDown()
+    {
+
+        var minute1,second1,cc,now,nowArr;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    nowArr=(data.content).split(/[- : \/]/);
+                    now = new Date(nowArr[0], nowArr[1]-1, nowArr[2], nowArr[3], nowArr[4], nowArr[5]);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+        var now = new Date(now );
+        //console.log(now)
+        if(now<advancedTime){
+
+            var endArr = "2017/09/14 10:00:00".split(/[- : \/]/);
+            endDate = new Date(endArr[0], endArr[1]-1, endArr[2], endArr[3], endArr[4], endArr[5]);
+
+        }else{
+            var endArr = "2017/09/25 23:59:59".split(/[- : \/]/);
+            endDate = new Date(endArr[0], endArr[1]-1, endArr[2], endArr[3], endArr[4], endArr[5]);
+        }
+
+        var leftTime=endDate.getTime()-now.getTime();
+        //alert(leftTime);
+
+        var leftsecond = parseInt(leftTime/1000);
+        var day1=Math.floor(leftsecond/(60*60*24));
+        var hour=Math.floor((leftsecond-day1*24*60*60)/3600);
+        var minute=Math.floor((leftsecond-day1*24*60*60-hour*3600)/60);
+        var second=Math.floor(leftsecond-day1*24*60*60-hour*3600-minute*60);
+        var dayhour=day1*24+hour;
+        minute=minute.toString();
+        second=second.toString();
+        if(minute.length< 2)  {minute1='0'+minute;}
+        else{ minute1= minute; }
+        if(second.length< 2)  {second1='0'+second;}
+        else{ second1= second; }
+
+        //cc = +day1+"天"+hour+"小时"+minute+"分"+second+"秒";
+        if(leftTime<0)  cc=0+"0:"+0+"0:"+0+"0";
+        else cc=dayhour+":"+minute1+":"+second1;
+        // console.log(cc)
+        //alert(cc);
+        $("#time").html(cc);
+    }
+    setInterval(function(){ShowCountDown();}, interval);
+
+
+
+    var loadStatus = function(){
+        var __html = '<div class="loading">\
+                    <img src="//m.ppdaicdn.com/home/images/loading.gif" width="100px" height="100px">\
+                  </div>';
+        if(!$('.loading').length){
+            $(".pop").show();            $(__html).appendTo($('body'))
+        }
+    }
+
+    var closeStatus = function(){
+        $('.loading').remove();
+        $(".pop").hide();
+    }
+
+    function getData(url,data,callback,isasync){
+        $.ajax({
+            async:(isasync==undefined?false:isasync),
+            url: url,
+            type: "GET",
+            dataType: 'json',
+            data: data,
+            beforeSend:loadStatus,
+            success:callback,
+            complete: function(){
+                CheckButtonColor();
+            },
+            error: function(){
+                closeStatus();
+                msgReminder("网络繁忙，请稍候再试~");
+            }
+        });
+    }
+    function isContains(str, substr) {
+        return new RegExp(substr).test(str);
+    }
+    var ajaxValue;
+    function querySecKillResult(txt){
+        var url = '/ccdai/api/secKill/querySecKillResult.htm';
+        $.ajax({
+            type:'get',
+            url:url,
+            async: false,
+            data:{secKillCode:"seckill_001",secKillHandleId:txt},
+            dataType:'json',
+            success:function(data){
+                if(data.result=="0" ){
+                    var Content=data.content;
+                    if(Content == null ){
+                        return false;
+                    }else {
+                        msgReminder(data.content);
+                        ajaxValue= '1';
+
+                    }
+                }else if(data.result=="-1"){
+                    msgReminder(data.resultMessage);
+                    return false;
+                }
+            },
+            error: function(){
+                console.log("网络错误2");
+            }
+        })
+    }
+
+    //    window.confirm = function (message) {
+    //        var iframe = document.createElement("IFRAME");
+    //        iframe.style.display = "none";
+    //        iframe.setAttribute("src", 'data:text/plain,');
+    //        document.documentElement.appendChild(iframe);
+    //        var alertFrame = window.frames[0];
+    //        var result = alertFrame.window.confirm(message);
+    //        iframe.parentNode.removeChild(iframe);
+    //        return result;
+    //    };
+    var wConfirm = window.confirm;
+    window.confirm = function (message) {
+        try {
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display = "none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            var alertFrame = window.frames[0];
+            var iwindow = alertFrame.window;
+            if (iwindow == undefined) {
+                iwindow = alertFrame.contentWindow;
+            }
+            var result=iwindow.confirm(message);
+            iframe.parentNode.removeChild(iframe);
+            return result;
+        }
+        catch (exc) {
+            return wConfirm(message);
+        }
+    }
+
+
+    $("#eighteen").click(function(){
+        CheckTime();
+        if(CheckTime()==false) return false;
+        if($(this).hasClass("imde") == false) return false;
+        if( confirm("确认使用一次秒杀资格")){
+            HurrytoGrab("eighteen");
+        }
+
+    });
+    $("#two").click(function(){
+        CheckTime();
+        if(CheckTime()==false) return false;
+        if($(this).hasClass("imde") == false) return false;
+        if( confirm("确认使用一次秒杀资格")){
+            HurrytoGrab("two");
+        }
+    });
+    $("#membership").click(function(e){
+        CheckTime();
+        if(CheckTime()==false) return false;
+        if($(this).hasClass("imde") == false) return false;
+        if( confirm("确认使用一次秒杀资格")){
+            HurrytoGrab("membership");
+        }
+    });
+    $("#recharge").click(function(e){
+        CheckTime();
+        if(CheckTime()==false) return false;
+        if($(this).hasClass("imde") == false) return false;
+        if( confirm("确认使用一次秒杀资格")){
+            HurrytoGrab("recharge");
+        }
+    });
+    $("#mystery").click(function(e){
+
+        var now;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    now=data.content;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+        var now = new Date(now);
+        if(now>=BeginTime && now<= endDate){
+            CheckTime();
+            if(CheckTime()==false) return false;
+            if($(this).hasClass("imde") == false) return false;
+            if( confirm("确认使用一次秒杀资格")){
+                HurrytoGrab("mystery");
+            }
+        }else if(now> endDate){
+            msgReminder("活动已结束");
+        }
+
+    });
+
+    function HurrytoGrab(txt){
+
+        var WhichGift ,issupremacy;
+        if(txt=="eighteen"){ WhichGift="coupon_18";issupremacy="false";}
+        if(txt=="two"){ WhichGift="coupon_2";issupremacy="false";}
+        if(txt=="membership"){ WhichGift="iqiyi_month_vip";issupremacy="false";}
+        if(txt=="recharge"){ WhichGift="phone_refill_card_50";issupremacy="false";}
+        if(txt=="mystery"){ WhichGift="supermacy_01";issupremacy="true";}
+
+        getData("/ccdai/api/secKill/secKill.htm",{secKillCode:"seckill_001",sku:WhichGift,isSupremacy:issupremacy},function(data){
+            closeStatus();
+            if(data.result ==0){
+                if(data.content.type=="1"){
+                    msgReminder(data.content.secKillResultMsg);
+                    var SkuInventory=data.content.pageLoadInfo.skuInventory;
+                    if( SkuInventory.supermacy_01>'0')    {  $("#mystery").attr('disabled',false);$("#mystery").addClass("imde");$("#mystery").html("马上抢");}
+                    else                               { $("#mystery").attr('disabled',true); $("#mystery").removeClass("imde");$("#mystery").html("今日已抢完"); }
+                    if( SkuInventory.coupon_18>'0')    {  $("#eighteen").attr('disabled',false);$("#eighteen").addClass("imde");$("#eighteen").html("马上抢");}
+                    else                               { $("#eighteen").attr('disabled',true);$("#eighteen").removeClass("imde"); $("#eighteen").html("今日已抢完"); }
+                    if( SkuInventory.iqiyi_month_vip>'0'){ $("#membership").attr('disabled',false);$("#membership").addClass("imde"); $("#membership").html("马上抢");}
+                    else                                  { $("#membership").attr('disabled',true);$("#membership").removeClass("imde");  $("#membership").html("今日已抢完");}
+                    if( SkuInventory.coupon_2>'0')        { $("#two").attr('disabled',false); $("#two").addClass("imde"); $("#two").html("马上抢");}
+                    else                                 { $("#two").attr('disabled',true);  $("#two").removeClass("imde");$("#two").html("今日已抢完"); }
+                    if( SkuInventory.phone_refill_card_50>'0'){$("#recharge").attr('disabled',false);$("#recharge").addClass("imde");  $("#recharge").html("马上抢");}
+                    else                                     {$("#recharge").attr('disabled',true);$("#recharge").removeClass("imde");   $("#recharge").html("今日已抢完");}
+
+                    return false;
+
+                } else {
+                    var SecKillHandleId=data.content.secKillHandleId;
+                    //querySecKillResult(SecKillHandleId);
+                    var Content=data.content.secKillResultMsg;
+                    var repeat = 5;  // 限制执行次数为5次
+                    if(Content == null){
+                        var timer = setInterval(function() {
+                            if ( repeat == "0" ) {
+                                clearInterval(timer);
+                            } else {
+                                repeat--;
+                                querySecKillResult(SecKillHandleId);
+                                if(ajaxValue== 1){
+                                    clearInterval(timer);
+                                }
+                            }
+                        }, 1000);
+                    }else{
+                        msgReminder(Content);
+                    }
+                }
+            }
+        })
+    }
+
+
+
+
+    window.onload=function () {
+        CheckTime();
+        CheckButtonColor();
+        var now;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    now=data.content;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+        var now = new Date(now );
+        var hours = now.getHours();
+        if( CheckTime()==true &&  hours >= 10 ){
+            secKillPageLoad();
+        }
+        ApplyTime(); //报名
+    }
+
+
+    function secKillPageLoad() {
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/secKillPageLoad.htm",
+            dataType: "json",
+            data : {
+                secKillCode:"seckill_001",
+            },
+            success: function(data){
+                var now;
+                $.ajax({
+                    type :'get',
+                    async: false,
+                    url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+                    dataType: "json",
+                    success: function(data){
+                        if(data.result==0){
+                            now=data.content;
+                        }
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown){
+                        alert("网络繁忙，请稍候再试~");
+                    }
+                })
+                var now = new Date(now );
+                var hours = now.getHours();
+
+                if(data.result ==0){
+                    if( data.content.skuInventory.supermacy_01>'0' && hours>=10)    {  $("#mystery").attr('disabled',false);$("#mystery").addClass("imde");$("#mystery").html("马上抢");}
+                    else                               { $("#mystery").attr('disabled',true);$("#mystery").removeClass("imde"); $("#mystery").html("今日已抢完"); }
+                    if( data.content.skuInventory.coupon_18>'0'&& hours>=10)    {  $("#eighteen").attr('disabled',false);$("#eighteen").addClass("imde");$("#eighteen").html("马上抢");}
+                    else                               { $("#eighteen").attr('disabled',true); $("#eighteen").removeClass("imde");$("#eighteen").html("今日已抢完"); }
+                    if( data.content.skuInventory.iqiyi_month_vip>'0' && hours>=10){ $("#membership").attr('disabled',false);$("#membership").addClass("imde"); $("#membership").html("马上抢");}
+                    else                                  { $("#membership").attr('disabled',true); $("#membership").removeClass("imde"); $("#membership").html("今日已抢完");}
+                    if( data.content.skuInventory.coupon_2>'0' && hours>=10)        { $("#two").attr('disabled',false);$("#two").addClass("imde");  $("#two").html("马上抢");}
+                    else                                 { $("#two").attr('disabled',true); $("#two").removeClass("imde"); $("#two").html("今日已抢完"); }
+                    if( data.content.skuInventory.phone_refill_card_50>'0' && hours>=10){$("#recharge").attr('disabled',false); $("#recharge").addClass("imde"); $("#recharge").html("马上抢");}
+                    else                                     {$("#recharge").attr('disabled',true);$("#recharge").removeClass("imde");   $("#recharge").html("今日已抢完");}
+                }
+            },
+            complete: function(){
+                CheckButtonColor();
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+    }
+
+    function EndCheckTime() {
+
+        if(now>endDate){
+            msgReminder("活动已结束");
+            return false;
+        }
+
+        return true;
+    }
+
+    function ApplyTime() { //校验开始时间
+
+        var now;
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/getServerCurrentTime.htm",
+            dataType: "json",
+            success: function(data){
+                if(data.result==0){
+                    now=data.content;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+        var now = new Date(now );
+
+        if(now>advancedTime){
+            $("#apply").css({ background: "#c5c5c5",color: "#fff"});
+            $("#apply").attr('disabled',true);
+            return false;
+        }
+        return true;
+    }
+
+    $("#apply").click(function(){
+        ApplyTime();
+        if(ApplyTime()==true){
+            Signup();
+        }
+
+    });
+
+    function Signup (){
+        EndCheckTime();
+        if( EndCheckTime()==true){
+            seckillSignup();
+        }
+    }
+
+    function seckillSignup() {
+
+        $.ajax({
+            type :'get',
+            async: false,
+            url  :"/ccdai/api/secKill/seckillSignup.htm",
+            dataType: "json",
+            data : {
+                secKillCode:"seckill_001"
+            },
+            success: function(data){
+                if(data.result ==0){
+                    msgReminder(data.content);
+                }else{
+                    msgReminder(data.resultMessage);
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown){
+                alert("网络繁忙，请稍候再试~");
+            }
+        })
+
+    }
+
+    function msgReminder(txt){
+        var _html = "";
+        _html += "<div class='toast'>";
+        _html += " <div class='obtain'>";
+        _html += "</div>";
+        _html += "<div class='copywriter'>";
+        _html +=  "<p class='copytext'>"+txt+"</p>";
+        _html += "<div class='sureBtn'> 确定 </div>";
+        _html += "</div>";
+        _html += "</div>";
+        $(_html).appendTo($('body'));
+        $(".pop").show();
+        $(".toast").show();
+        $(".sureBtn").on("click",function () {
+            $(".pop").hide();
+            $(".toast").hide();
+        })
+    }
+
+
+
+</script>
