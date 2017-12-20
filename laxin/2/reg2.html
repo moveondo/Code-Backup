@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta itemprop="name" content="送您一张免息券，请查收！">
+<meta itemprop="description" content="无门槛、零担保，通过率极高，新用户首单更有免息券.......">
+<meta itemprop="image" content="https://m.ppdaicdn.com/img/ccdlogo.png">
+<title>推荐好友注册</title>
+<link href="//mobiccdai.ppdaicdn.com/source/ccdcps5/css/reg.css" rel="stylesheet">
+<body>
+<div id="regContainer">
+    <header class="regTop">
+        <img src="//mobiccdai.ppdaicdn.com/source/ccdcps5/image/r_banner.png">
+    </header>
+    <div class="form-wrap">
+        <ul class="lists">
+            <li>
+                <div class="ubox">
+                    <div class="label">手机号</div>
+                    <div class="ubox ub-f1">
+                        <input type="tel" class="phone" id="phone" placeholder="请输入常用手机号" maxlength="11">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="ubox">
+                    <div class="label">图形验证码</div>
+                    <div class="ubox ub-f1 pic-ubox">
+                        <input type="text" class="pic" id="pic" placeholder="验证码" maxlength="4">
+                    </div>
+                    <!-- <div class="getcode-r getcode-r-img" style="border:0"><img src="http://192.168.30.90:8080/ccdai-front/ccdai/api/captchaImage.htm?tmp=635703258724375000" id="imgCode" onclick="document.getElementById('imgCode').src ='http://192.168.30.90:8080/ccdai-front/ccdai/api/captchaImage.htm?tmp=' + Math.random()" alt="验证码" title="看不清？点击换一张"></div> -->
+                    <div class="getcode-r getcode-r-img" style="border:0"><img src="http://mobiccdai.ppdai.com/ccdai/api/captchaImage.htm?tmp=635703258724375000" id="imgCode" onclick="document.getElementById('imgCode').src ='http://mobiccdai.ppdai.com/ccdai/api/captchaImage.htm?tmp=' + Math.random()" alt="验证码" title="看不清？点击换一张"></div>
+                </div>
+            </li>
+            <li>
+                <div class="ubox">
+                    <div class="label">手机验证码</div>
+                    <div class="ubox ub-f1 pic-ubox">
+                        <input type="tel" class="phone" id="dx" placeholder="6位验证码" maxlength="6">
+                        <div class="common-icon"></div>
+                    </div>
+                    <input type="hidden" id="userstatus" value="loan">
+                    <input type="button" class="getcode-r" id="sendCode" value="发送验证码" onclick="CCD.sendRegisSMS()">
+                    <!--<input type="button" class="getcode-r code-disabled " id="sendCode1" value="59秒再发送">-->
+                </div>
+            </li>
+            <div class="errorMsg"></div>
+            <div class="submitBtn" onclick="CCD.submitSMS()">
+                <img src="//mobiccdai.ppdaicdn.com/source/ccdcps5/image/button.png"/>
+            </div>
+        </ul>
+    </div>
+
+</div>
+
+<!-- <div class="bg"></div>
+<div class="sW">
+    <div class="success">
+        <img src="//m.ppdaicdn.com/act/ccd/cps/image/iconsuc.png" class="sucimg">\
+        <div class="desc">
+            哎呀~客官~<br>
+            恭喜您获得一张8元减息券！<br>
+            快快下载并享用吧~<br>
+        </div>
+        <img src="//m.ppdaicdn.com/act/ccd/cps/image/btn_suc.png" class="sucbtn">
+    </div>
+</div> -->
+<!-- <div class="bg"></div>
+  <div class="sW2">
+    <div class="sW2_top_icon">
+        <img src="//m.ppdaicdn.com/act/ccd/cps/image/topicon.png">
+    </div>
+    <div class="sW2_close" onClick="closePopComponents(this.parentNode)"></div>
+    <div class="sW2_cont">
+        客官~您已经'+ txt +'啦，登录并使用，有机会赢更多现金大奖哦!
+    </div>
+    <button class="sW2_btn" onClick="closePopComponents(this.parentNode)">确定</button>
+</div> -->
+</body>
+</html>
+<script src="//mobiccdai.ppdaicdn.com/source/ccdcps4/js/jquery.min.js"></script>
+<script src="//mobiccdai.ppdaicdn.com/source/ccdcps5/js/app2.js"></script>
