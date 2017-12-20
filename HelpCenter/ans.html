@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>帮助中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/ccdhelp/css/ans.css">
+</head>
+<body>
+    <section class="q1">
+	 		<p class="question"></p>
+	 		<div class="key"></div>
+	 		<div class="thanks">提交成功，感谢您的评价</div>
+   </section>
+   
+   <div class="help_if">
+      <span class="if_no"> 是否对您有帮助？</span> 
+      <span id="no"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/dotdown.png"> &nbsp; 否</img></span>
+      <span id="yes"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/dotup.png">&nbsp;  是</img></span>
+   </div>
+</body> 
+</html>
+
+ <script src="https://m.ppdaicdn.com/act/cpa/js/jquery.min.js"></script>
+ <script >
+window.alert = function(name){
+ var iframe = document.createElement("IFRAME");
+iframe.style.display="none";
+iframe.setAttribute("src", 'data:text/plain,');
+document.documentElement.appendChild(iframe);
+window.frames[0].window.alert(name);
+iframe.parentNode.removeChild(iframe);
+}
+
+  function GetQueryString(name) {         
+            var r = window.location.search.substr(11,2);
+            if (r!=null) return r;
+            else  return null;			
+    }
+	
+   var href= GetQueryString();
+   var num=href-1;
+   var QA=[{"num":'1',"Q":'为什么身份认证时提示已被认证了',"A":'您可以回想下，提示中的手机号码是否已注册过1或2账户，并且认证过此身份证信息。同一个身份证只能被认证在一个账户中哦，且曹操贷和拍拍贷的账号是共用的，您用提示中的手机号码登录曹操贷即可直接借款。'},
+           {"num":'2',"Q":'认证的手机是否必须是实名制？','A':'必须是实名制，手机认证也是判断您获取额度多少的重要依据哦。注册的手机号码可以不一致。'},
+		   {"num":'3',"Q":'如何填写补充资料?','A':'您可以登录APP后，点击首页的额度卡片右上角的”提额”，选择需要补充的资料选项并按照页面提示操作.'},
+		   {"num":'4',"Q":'等待审核中，我应该做些什么？','A':'您可以先阅读帮助中心的内容，对借款、还款流程及问题等有个清晰的了解，方便您后续的操作；也可以返回到首页，点击右下角的"任务中心"，参与和完成各种小任务，赢得丰厚的赏金。'},
+		   {"num":'5',"Q":'为什么额度那么低？如何提升？','A':'1是一款超短期、小额贷款的神器，所以额度相对没那么高。不过，您可以通过多次贷款且按时还款、补充更多资料等方式不断提高评分，从而可以获得更高的额度。'},
+		   {"num":'6',"Q":'借款后多久能够到账？','A':'一般情况，申请借款后的2个小时内会到账，最快30分钟即可到账。当然，在节假日或高峰期，可能会存在一定的延迟，请您耐心等待。您可以在app内随时查询借款进度，如遇长时间未到账或异常情况，可联系客服协助您处理。'},
+		   {"num":'7',"Q":'是否可以同时多次借款？','A':'可以呢，只要您的账户还有额度且超过100元，就可以继续借款。'},
+		   {"num":'8',"Q":'借款成功的钱会发到哪里？','A':'借款申请审核通过后，我们会将钱自动打到您绑定的银行卡中，请您注意查收。当然，在节假日或高峰期，偶尔会存在延迟情况，建议您耐心等待。您可以在app内随时查询借款进度，如长时间未收到，可联系客服协助您处理。'},
+		   {"num":'9',"Q":'为什么在平台上看到借款成功，钱还没有到账？','A':'银行到账时间可能会有延迟，请您耐心等待。若长时间未到账，可联系客服(4001848888)，我们会尽快协助您处理。'},
+		   {"num":'10',"Q":'借款申请可以中途取消吗？','A':'很抱歉，您提交借款申请后系统会进行一系列的审核动作，无法取消，请您等待审核结果。'},
+		   {"num":'11',"Q":'是否可以提前还款？','A':'当然可以提前还款，您可以登录APP，点击还款并按照页面提示操作即可。'},
+		   {"num":'12',"Q":'还款的方式都有哪些？','A':'目前支持该账户绑定的银行卡还款，或使用拍拍贷账号余额还款。'},
+		   {"num":'13',"Q":'是否是自动还款？','A':'为了最大程度确保您账户的安全，目前还不支持自动还款哦，建议您记得还款日期，在还款日登录APP进入到还款页面，按照页面提示操作即可。<br/><br/>为了保护您的借款信用，我们也会在还款日前发送短信提醒您的，请您关注哦。'},
+		   {"num":'14',"Q":'还款后多久可以再贷？','A':'只要您的账户有额度（且超过100元）就可以继续贷款呢，可以同时有多笔借款。'},
+		   {"num":'15',"Q":'1的账号可以与2的共用吗？','A':'账号可以共用哦，省去了您重新注册的麻烦~ 但是，两者的额度是独立的哦，不能共享。'},
+		   {"num":'16',"Q":'是否可以更换绑定的手机？如何做？','A':'目前不支持您自行修改哦，如绑定的手机号码有误或需要更换，您可以致电客服(4001848888)，我们会尽快协助您处理。'},
+		   {"num":'17',"Q":'如何更换已绑定的银行卡？','A':'目前不支持您自行修改哦，如绑定的银行卡信息有误或需要更换，您可以致电客服(4001848888)，我们会尽快协助您处理。'},
+		   {"num":'18',"Q":'是否可以修改密码？忘记登录密码怎么办？','A':'目前还不支持密码修改哦，如您忘记密码，可以在登录时输入手机号码后，点击”忘记密码？短信验证码登录”，并按照页面提示操作即可。'},
+		   {"num":'19',"Q":'如何推荐好友？','A':'您可以返回到首页，点击右下角的”任务中心”图标，在”任务中心”界面有一个”邀请好友”的入口，按照页面提示分享给好友即可，不仅可以帮到好友，您还能获得相应奖励哦~当然，我们也会不定期的举办一些推荐好友PK赛或奖励规则，建议您多多留意曹操贷APP中的活动介绍哦。'},
+	       {"num":'20',"Q":'任务中心赢得的赏金，有什么用？','A':'您获得的赏金，可以用来参与各种活动，例如话题竞猜等，当然，您也积攒赏金到一定的数量，用来兑换优惠券等礼品哦.'}]
+
+	     $(".question").html(QA[num]["Q"])
+		 $(".key").html(QA[num]["A"])
+		 
+		  
+ function if_ajax(){
+  var datas = {"helpContentId":num};
+   $.ajax({
+     type :"GET",
+     async: false,
+     dataType: "json",
+     data:datas,
+     url:"/ccdai/api/help/evaluateInfo.htm",
+     success: function(data){
+    
+        if(data.result=='0' && data.content.evaluate==true){
+             if(data.content.evaluateType=='1'){$('#yes img').attr("src","//mobiccdai.ppdaicdn.com/source/ccdhelp/dotup_active.png");}
+             if(data.content.evaluateType=='2'){ $('#no img').attr("src","//mobiccdai.ppdaicdn.com/source/ccdhelp/dotdown_active.png");}
+             $("#yes").unbind('click');
+             $("#no").unbind("click");
+        }
+    	
+     },
+     error: function(XMLHttpRequest, textStatus, errorThrown){
+         console.log("请求失败");
+     }
+ })
+} 
+ if_ajax();
+ 
+ 
+      function  msgReminder(){
+            $('.thanks').show();
+            window.setTimeout(function(){
+                var $msg = $('.thanks');
+                $msg.fadeOut(2000);
+            },1000)
+
+        }
+	
+		 
+	 $('#yes').on('click',function(){
+	 
+	 var data = {"evaluateType":1,"helpContentId":num};
+     $.ajax({
+             type :"GET",
+             async: false,
+             dataType: "json",
+             data:data,
+             url:"/ccdai/api/help/evaluate.htm",
+
+             success: function(data){
+          
+                if(data.result=='0'){
+                	$('#yes img').attr("src","//mobiccdai.ppdaicdn.com/source/ccdhelp/dotup_active.png");
+                	 msgReminder();
+                }
+            	if(data.result=='-1'){
+            		alert(data.resultMessage);
+            	}
+             },
+             error: function(XMLHttpRequest, textStatus, errorThrown){
+                 console.log("请求失败");
+             }
+         })
+     $(this).unbind('click');
+     $("#no").unbind("click");
+ })
+ 
+ $('#no').on('click',function(){
+	 
+	 var data = {"evaluateType":2,"helpContentId":num};
+    
+     $.ajax({
+             type :"GET",
+             async: false,
+             dataType: "json",
+             data:data,
+             url:"/ccdai/api/help/evaluate.htm",
+             success: function(data){
+                if(data.result=='0'){
+                	$('#no img').attr("src","//mobiccdai.ppdaicdn.com/source/ccdhelp/dotdown_active.png");
+                	 msgReminder();	
+                }
+            	if(data.result=='-1'){
+            		alert(data.resultMessage);
+            	}
+             },
+             error: function(XMLHttpRequest, textStatus, errorThrown){
+                 console.log("请求失败");
+               
+             }
+         })
+         $("#yes").unbind('click');
+         $(this).unbind("click");
+ })
+</script>

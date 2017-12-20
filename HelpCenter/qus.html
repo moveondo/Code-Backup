@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>帮助中心</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <style>
+    @charset "utf-8";
+
+	html, body,  span, applet, object, iframe,ul,li, h1, h2, h3, h4, h5, h6,form, label {
+		margin: 0;
+		padding: 0;
+		outline: 0;
+		background: transparent;
+		vertical-align: baseline;
+	}
+	html{
+		font-size: 62.5%;
+	}
+	body {
+		background-color: #f0f0f0;
+		font-family: .PingFangSC-Regular;
+		max-width: 640px;
+		min-width: 320px;
+		-webkit-touch-callout:none;
+	}
+	a { text-decoration: none;
+		color:#555555;
+	}
+	.container{
+		padding: 20px 5.3%;
+		background-color: #f0f0f0;
+		box-sizing: border-box;
+		color: #BD081C;
+		font-size: 1.4rem;
+		line-height: 26px;
+		overflow:hidden;
+	}
+	.piece{
+		background-color:#fff;
+		margin-top: 24px;
+		height: 102px;
+		box-shadow: 4px 5px 9px 1px #D3D3D3;
+		border-radius:8px;
+
+	}
+	.piece  ul li{
+		list-style: none;
+		padding-left: 1.5em;
+		line-height: 50px;
+
+	}
+	.piece  ul li a{
+		text-decoration: none;
+		color: black;
+	}
+
+	.piece  ul li.list_style{
+		border-bottom: 1px solid #f7f7f7;
+
+	}
+
+	.piece .piece_left{
+		float: left;
+		width: 20%;
+		line-height: 100px;
+		overflow:hidden;
+		background: #fff;
+		margin-left: 5px;
+		text-align: center;
+		position: relative;
+
+	}
+
+	.piece .piece_right{
+		float: right;
+		width: 78%;
+		background: #fff;
+		border-top-right-radius:8px;
+		border-bottom-right-radius:8px;
+		border-left: 1px solid #f7f7f7;
+	}
+	.piece .click_none{
+		display:none;
+	}
+	.piece0.active,.piece2.active{
+		height: 203px;
+		box-shadow: 6px 6px 5px #d8d8d8;
+	}
+	.piece3.active{
+		height: 219px;
+		box-shadow: 6px 6px 5px #d8d8d8;
+	}
+	.piece1.active{
+		height: 316px;
+		box-shadow: 6px 6px 5px #d8d8d8;
+	}
+	#piece4{
+		margin-bottom: 50px;
+	}
+	.img_add img{
+		width: 24px;
+		position: absolute;
+		top: 15%;
+		left: 30%;
+	}
+	.img_add.img_spe img{
+		top: 13%;
+		width: 19px;
+	}
+
+	.piece_left .imgsrc{
+		width: 12px;
+		height: 10px;
+		background: url("//mobiccdai.ppdaicdn.com/source/ccdhelp/down11.png") no-repeat;
+		background-size: contain;
+		position: absolute;
+		left: 37%;
+		top: 70px;
+	}
+	.piece_left .imgsrc.active{
+		width: 12px;
+		height: 10px;
+		background: url("//mobiccdai.ppdaicdn.com/source/ccdhelp/up11.png") no-repeat ;
+		background-size: contain;
+		position: absolute;
+		left: 37%;
+		top: 70px;
+	}
+	.piece  ul li.if_height{
+		line-height:33px !important;
+	}
+	.customer_service{
+		height:50px;
+		background-color:#fff;
+		text-align:center;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		line-height: 50px;
+		overflow: hidden;
+		color: #bd081c;
+		font-size: 1.6rem;
+
+	}
+	.customer_service img {
+		width: 22px;
+		vertical-align: middle;
+		margin-right: 9px;
+	}
+	.mask {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 2;
+		opacity: .6;
+		background-color: #000;
+		display: none;
+	}
+	footer {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 3;
+		width: 90%;
+		padding: 0 5% 10px;
+		font-size: 16px;
+		display: none;
+	}
+	.phoneNum {
+		color: #BD081C;
+	}
+	footer section {
+		padding: 10px 5%;
+		margin-bottom: 10px;
+		text-align: center;
+		background-color: #fff;
+		border-radius: 8px;
+		box-sizing: border-box;
+	}
+
+	@media screen and (max-width:420px){
+		.piece1.active {
+			height: 322px;
+		}
+		.piece3.active {
+			height: 203px;
+		}
+
+	}
+	@media screen and (max-width:380px){
+
+		.piece3.active {
+			height: 220px;
+		}
+	}
+	@media screen and (max-width:360px){
+		.piece3{
+			height: 117px;
+		}
+		.piece3.active {
+			height: 235px;
+		}
+	}
+	@media screen and (max-width:320px){
+		.container{
+		font-size:12px;
+		}
+		.piece .piece_right{
+			width: 77%;
+		}
+
+	}
+
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="piece piece0">
+	<div class="piece_left"  id="piece0">
+		<div class="img_add"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/shenhe.png">
+			<div>资料审核 </div>
+		</div>
+
+	   <div class="imgsrc"></div>
+	</div>
+	<div class="piece_right">
+	  <ul>
+	   <a href="./ans.html?ref_topic=1"><li class="list_style">为什么身份认证时提示已被认证了？</li></a>
+	  <a href="./ans.html?ref_topic=2"> <li class="">认证的手机是否必须是实名制？</li></a>
+	  <a href="./ans.html?ref_topic=3"> <li class="list_style if_none click_none">如何填写补充资料？</li></a>
+	   <a href="./ans.html?ref_topic=4"><li class="click_none if_none">等待审核中，我应该做些什么？</li></a>
+	 </ul>
+	</div>
+</div>
+<div style="clear:both"></div>
+<div class="piece piece1">
+	<div class="piece_left" id="piece1">
+		<div class="img_add"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/jiekuan.png">
+			<div>借款相关 </div>
+		</div>
+	  <div class="imgsrc"></div>
+	</div>
+	<div class="piece_right">
+	  <ul>
+	  <a href="./ans.html?ref_topic=5"> <li class="list_style">为什么额度那么低？如何提升？</li></a>
+	  <a href="./ans.html?ref_topic=6"> <li class="">借款后多久能够到账？</li></a>
+	  <a href="./ans.html?ref_topic=7"> <li class="list_style if_none click_none">是否可以同时多次借款？</li></a>
+	   <a href="./ans.html?ref_topic=8"><li class="list_style click_none if_none">借款成功的钱会发到哪里？</li></a>
+	   <a href="./ans.html?ref_topic=9"><li class="list_style click_none if_none if_height">为什么在平台上看到借款成功，钱还没有到账？</li></a>
+	  <a href="./ans.html?ref_topic=10"> <li class="click_none if_none">借款申请可以中途取消吗？</li></a>
+	 </ul>
+	</div>
+</div>
+<div style="clear:both"></div>
+<div class="piece piece2">
+	<div class="piece_left" id="piece2">
+		<div class="img_add"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/huankuan.png">
+			<div>还款相关 </div>
+		</div>
+	 <div class="imgsrc"></div>
+	 </div>
+	<div class="piece_right">
+	  <ul>
+	   <a href="./ans.html?ref_topic=11"><li class="list_style">是否可以提前还款？</li></a>
+	   <a href="./ans.html?ref_topic=12"><li class="">还款的方式都有哪些？</li></a>
+	   <a href="./ans.html?ref_topic=13"><li class="list_style if_none click_none">是否是自动还款？</li></a>
+	   <a href="./ans.html?ref_topic=14"> <li class="click_none if_none">还款后多久可以再贷？</li></a>
+	 </ul>
+	</div>
+</div>
+<div style="clear:both"></div>
+<div class="piece piece3">
+	<div class="piece_left" id="piece3">
+		<div class="img_add img_spe"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/zhanghu.png">
+			<div>账户相关 </div>
+		</div>
+	  <div class="imgsrc"></div>
+	</div>
+	<div class="piece_right">
+	  <ul>
+	   <a href="./ans.html?ref_topic=15"><li class="list_style">1账号可以与2的共用吗？</li></a>
+	   <a href="./ans.html?ref_topic=16"><li class="">是否可以更换绑定的手机？如何做？</li></a>
+	   <a href="./ans.html?ref_topic=17"><li class="list_style if_none click_none">如何更换已绑定的银行卡？</li></a>
+	   <a href="./ans.html?ref_topic=18"><li class="click_none if_none if_height">是否可以修改密码？忘记登录密码怎么办？</li></a>
+	 </ul>
+	</div>
+</div>
+<div style="clear:both"></div>
+<div class="piece piece4">
+	<div class="piece_left" id="piece4">
+		<div class="img_add img_spe"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/question.png">
+			<div>其他问题 </div>
+		</div>
+	</div>
+	<div class="piece_right">
+	  <ul>
+	  <a href="./ans.html?ref_topic=19"> <li class="list_style">如何推荐好友？</li></a>
+	  <a href="./ans.html?ref_topic=20"> <li class="">任务中心赢得的赏金，有什么 用？</li></a>
+	 </ul>
+	</div>
+</div>
+<div style="clear:both"></div>
+</div>
+
+   <div class="customer_service" onclick="GLO.showPhoneNum();"><img src="//mobiccdai.ppdaicdn.com/source/ccdhelp/helpcenter.png">
+              <span id="call" >联系客服</span></img>
+   </div>
+
+
+<div class="mask"></div>
+<footer>
+	<section class="phoneNum" onclick='GLO.userViews("身份认证联系客服",19);'>
+	    拨打客服联系电话：4001848888
+	</section>
+	<section onclick="GLO.hidePhoneNum()">取消</section>
+</footer>
+	 	
+</body>
+</html>
+
+ <script src="https://m.ppdaicdn.com/act/cpa/js/jquery.min.js"></script>
+ <script >
+   $('#piece0').on('click',function(){
+	   if( $(".piece0 ul li").hasClass("click_none")){
+	      $(".piece0 ul li").removeClass("click_none");
+		   $(".piece0").addClass("active");
+		   $(".piece0 ul li").eq(1).addClass("list_style");
+		   $(".piece0 .imgsrc").addClass("active");
+		} else{
+		  $(".piece0 .if_none").addClass("click_none");
+		  $(".piece0").removeClass("active");
+		  $(".piece0 ul li").eq(1).removeClass("list_style");
+		  $(".piece0 .imgsrc").removeClass("active");
+		}  
+    })
+  $('#piece1').on('click',function(){
+   if( $(".piece1 ul li").hasClass("click_none")){
+	  $(".piece1 ul li").removeClass("click_none");
+	  $(".piece1").addClass("active");
+	 // $(".piece1 .piece_left").css("height", "316px");
+	   $(".piece1 ul li").eq(1).addClass("list_style");
+	   $(".piece1 .imgsrc").addClass("active");
+	} else{
+	  $(".piece1 .if_none").addClass("click_none");
+	  //$(".piece1 .piece_left").css("height", "97px");
+	  $(".piece1").removeClass("active");
+	  $(".piece1 ul li").eq(1).removeClass("list_style");
+	  $(".piece1 .imgsrc").removeClass("active");
+	}  
+ })
+ 
+  $('#piece2').on('click',function(){
+   if( $(".piece2 ul li").hasClass("click_none")){
+	  $(".piece2 ul li").removeClass("click_none");
+	  $(".piece2").addClass("active");
+	 // $(".piece2 .piece_left").css("height", "193px");
+	   $(".piece2 ul li").eq(1).addClass("list_style");
+	   $(".piece2 .imgsrc").addClass("active");
+	} else{
+	  $(".piece2 .if_none").addClass("click_none");
+	  //$(".piece2 .piece_left").css("height", "97px");
+	    $(".piece2").removeClass("active");
+	  $(".piece2 ul li").eq(1).removeClass("list_style");
+	  $(".piece2 .imgsrc").removeClass("active");
+	}  
+ })
+ 
+  $('#piece3').on('click',function(){
+   if( $(".piece3 ul li").hasClass("click_none")){
+	  $(".piece3 ul li").removeClass("click_none");
+	  $(".piece3").addClass("active");
+	 // $(".piece3 .piece_left").css("height", "219px");
+	   $(".piece3 ul li").eq(1).addClass("list_style");
+	   $(".piece3 .imgsrc").addClass("active");
+	} else{
+	  $(".piece3 .if_none").addClass("click_none");
+	  $(".piece3").removeClass("active");
+	 // $(".piece3 .piece_left").css("height", "97px");
+	  $(".piece3 ul li").eq(1).removeClass("list_style");
+	  $(".piece3 .imgsrc").removeClass("active");
+	}  
+ })
+ 
+	
+  
+    
+   var GLO={
+	  showPhoneNum:function(){
+        $('.mask').fadeIn().next('footer').fadeIn();
+		 var _url = "/ccdai/api/dataStatistics/dataStatistics.htm";
+            $.ajax({
+                async: false,
+                url: _url,
+                data: {
+                    classify :3,
+                    statisticsType : 'customer_service',
+                },
+                type: "GET",
+               // dataType: 'jsonp',
+                success: function(data) {
+
+                }
+            })
+        },
+      hidePhoneNum:function(){
+        $('.mask').fadeOut().next('footer').fadeOut();
+        },
+	 userViews: function(){
+	     JSHandle.phoneAction();
+      }
+    }
+ </script>
