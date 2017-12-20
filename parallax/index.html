@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content=”telephone=no” name=”format-detection” />
+    <title>拍拍贷十周年</title>
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/wechat/css/parallax.css?version=201701">
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/wechat/css/parallax-animation.css">
+    <link rel="stylesheet" type="text/css" href="//mobiccdai.ppdaicdn.com/source/wechat/css/style.css?version=201705">
+    <style>
+        body{
+            font-size: 62.5%;
+        }
+        @font-face{
+            font-family: FZDaBiaoSong-B06S;
+            src: url('./font/fz.ttf') format('truetype'),
+            url('./font/_gbk-webfont.woff') format('woff'),
+            url('./font/_gbk-webfont.woff2')  format('woff2');
+        }
+        .toast1, .toast2{
+            top: 40%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="pages">
+
+        <!-- 第一屏 -->
+        <div class="page ">
+            <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/one.png" class="one">
+        </div>
+
+        <!-- 第二屏 -->
+        <div class="page two">
+            <div id="sendit"></div>
+            <div id="sendit0"></div>
+        </div>
+
+        <!-- 第三屏 -->
+        <div class="page three">
+            <div id="sendit1"></div>
+            <div id="sendit2"></div>
+
+            <div id="leegirl"> 李女士的故事</div>
+            <div id="niu"> 牛先生的故事</div>
+            <div id="cai">蔡先生的故事 </div>
+
+            <div class="leegirl" >
+                <div class="bac-close0">
+                    <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/close.png" id="close0" class="close0">
+                </div>
+                <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/lee1.png" >
+
+            </div>
+            <div class="niu" >
+                <div class="bac-close1">
+                    <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/close.png" id="close1">
+                </div>
+                <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/niu1.png" >
+
+            </div>
+            <div class="cai" >
+                <div class="bac-close2">
+                <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/close.png" id="close2">
+                </div>
+                <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/cai1.png" >
+            </div>
+
+        </div>
+
+
+        <!-- 第四屏 -->
+        <div class="page">
+            <img src="//mobiccdai.ppdaicdn.com/source/wechat/images/four1.png" class="four">
+            <div class="text">
+                <p class="title">活动规则</p>
+                <p>1、活动时间:2017年6月15日-2017年6月19日;<br />
+                    2、活动对象:已有额度的曹操贷老用户,点击活动按钮即可参与;<br />
+                    3、每天各个时段限量发放10元减息券,领完即止; <br />
+                    4、每天9:00、14:00、19:00、00:00分时段开抢;<br />
+                    5、活动期间内每位用户只可成功领取1次减息券; <br />
+                    6、领取成功后,减息券自动发放到个人账户中.<br />
+            </div>
+            <div class="button" id="welfare">
+                领取您的专属福利
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="pop"></div>
+
+<div class="toast2">
+    <div class="obtain">
+    </div>
+    <div class="deed_circle">
+        <div class="deed deed1">
+            <div class="circle">
+                <sub>券</sub>
+            </div>
+            <div class="borrowing_coupons">
+                <p>借款优惠券</p>
+            </div>
+            <div class="money">
+                <sub class="sign">￥</sub><span>10</span>
+            </div>
+
+        </div>
+        <div class="sureBtn2">确定</div>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script type="text/javascript" src="//mobiccdai.ppdaicdn.com/source/wechat/js/zepto.min.js"></script>
+<script type="text/javascript" src="//mobiccdai.ppdaicdn.com/source/wechat/js/parallax.js"></script>
+
+<script type="text/javascript">
+
+    var  isiOS      = navigator.userAgent.match('iPad') || navigator.userAgent.match('iPhone') || navigator.userAgent.match('iPod');
+     var  isAndroid  = navigator.userAgent.match('Android');
+
+    var if_drag = function () {
+
+        if(isiOS){
+            $('.pages').parallax({
+                direction: 'vertical', 	// horizontal (水平翻页)
+                swipeAnim: 'cover', 	// cover (切换效果)
+                drag: true ,            // 是否允许拖拽 (若 false 则只有在 touchend 之后才会翻页)
+                loading:   false,		// 有无加载页
+                indicator: true,		// 有无指示点
+                arrow:     true,		// 有无指示箭头
+
+                onchange: function(index, element, direction) {
+
+                    if(index==1 && direction=="forward"){
+
+                        document.getElementById("sendit").innerHTML="有这样一种 <b> 「叹息」 </b><br />";
+                        document.getElementById("sendit0").innerHTML="<b> 缺钱花 &nbsp; 借钱难</b> ";
+                        document.getElementById("sendit").style.display="block";
+                        $("#sendit").animate({
+                                opacity:1,
+                                translate3d:'10px,100px,10px'
+                            },
+                            1500,
+                            'ease-out'
+                        )
+
+                        setTimeout(function(){
+                            document.getElementById("sendit0").style.display="block";
+                            $("#sendit0").animate({
+                                    opacity:1,
+                                    translate3d:'10px,100px,10px'
+                                },
+                                1500,
+                                'ease-out'
+                            )
+                        },1000);
+                    }
+                    else if(index==2 && direction=="forward" ){
+                        document.getElementById("sendit1").innerHTML="某一刻 <b> 「意外的助力」 </b><br /> ";
+                        document.getElementById("sendit2").innerHTML="<b> 生活就多了一份希望</b>";
+                        document.getElementById("sendit1").style.display="block";
+                        $("#sendit1").animate(
+                            {
+                                opacity:1,
+                                translate3d:'10px,100px,10px'
+                            },
+                            1500,
+                            'ease-out'
+                        )
+                        setTimeout(function(){
+                            document.getElementById("sendit2").style.display="block";
+                            $("#sendit2").animate({
+                                    opacity:1,
+                                    translate3d:'10px,100px,10px'
+                                },
+                                1500,
+                                'ease-out'
+                            )
+                        },1000);
+                    }else if(index==3 && direction=="forward"){
+                        // alert(3)
+                        $(".leegirl").css({"display" : "none"});
+                        $(".niu").css({"display" : "none"});
+                        $(".cai").css({"display" : "none"});
+                    }else if(index==1 && direction=="backward"){
+                        // alert(3)
+                        $(".leegirl").css({"display" : "none"});
+                        $(".niu").css({"display" : "none"});
+                        $(".cai").css({"display" : "none"});
+                    }
+                },
+
+            });
+        }else{
+
+            $('.pages').parallax({
+                direction: 'vertical', 	// horizontal (水平翻页)
+                swipeAnim: 'cover', 	// cover (切换效果)
+                drag: false ,            // 是否允许拖拽 (若 false 则只有在 touchend 之后才会翻页)
+                loading:   false,		// 有无加载页
+                indicator: true,		// 有无指示点
+                arrow:     true,		// 有无指示箭头
+
+                onchange: function(index, element, direction) {
+
+                    if(index==1 && direction=="forward"){
+                        document.getElementById("sendit").innerHTML="有这样一种 <b> 「叹息」 </b><br />";
+                        document.getElementById("sendit0").innerHTML="<b> 缺钱花 &nbsp; 借钱难</b> ";
+                        document.getElementById("sendit").style.display="block";
+                        $("#sendit").animate({
+                                opacity:1,
+                                translate3d:'10px,100px,10px'
+                            },
+                            1500,
+                            'ease-out'
+                        )
+
+                        setTimeout(function(){
+                            document.getElementById("sendit0").style.display="block";
+                            $("#sendit0").animate({
+                                    opacity:1,
+                                    translate3d:'10px,100px,10px'
+                                },
+                                1500,
+                                'ease-out'
+                            )
+                        },1000);
+                    }
+                    else if(index==2 && direction=="forward" ){
+
+                        document.getElementById("sendit1").innerHTML="某一刻 <b> 「意外的助力」 </b><br /> ";
+                        document.getElementById("sendit2").innerHTML="<b> 生活就多了一份希望</b>";
+                        document.getElementById("sendit1").style.display="block";
+                        $("#sendit1").animate(
+                            {
+                                opacity:1,
+                                translate3d:'10px,100px,10px'
+                            },
+                            1500,
+                            'ease-out'
+                        )
+                        setTimeout(function(){
+                            document.getElementById("sendit2").style.display="block";
+                            $("#sendit2").animate({
+                                    opacity:1,
+                                    translate3d:'10px,100px,10px'
+                                },
+                                1500,
+                                'ease-out'
+                            )
+                        },1000);
+                    }else if(index==3 && direction=="forward"){
+                        // alert(3)
+                        $(".leegirl").css({"display" : "none"});
+                        $(".niu").css({"display" : "none"});
+                        $(".cai").css({"display" : "none"});
+                    }else if(index==1 && direction=="backward"){
+                        // alert(3)
+                        $(".leegirl").css({"display" : "none"});
+                        $(".niu").css({"display" : "none"});
+                        $(".cai").css({"display" : "none"});
+                    }
+                },
+
+            });
+
+        }
+
+
+     }
+
+
+    if_drag();
+
+    Zepto(function($) {
+        $('#leegirl').on("touchstart",function(event){
+            $(".leegirl").css({"display" : "block"});
+            event.preventDefault();
+        });
+        $(".bac-close0").on("touchstart",function (e) {
+            $(".leegirl").css({"display" : "none"});
+            e.preventDefault();
+        })
+
+        $('#niu').bind("touchstart",function(event){
+            $(".niu").css({"display" : "block"});
+            event.preventDefault();
+        });
+        $('.bac-close1').bind("touchstart",function(event){
+            $(".niu").css({"display" : "none"});
+            event.preventDefault();
+        },false)
+        $('#cai').bind("touchstart",function(event){
+            $(".cai").css({"display" : "block"});
+            event.preventDefault();
+        });
+        $('.bac-close2').bind("touchstart",function(event){
+            $(".cai").css({"display" : "none"});
+            event.preventDefault();
+        },false)
+    });
+
+    document.addEventListener('touchmove', function (event) {
+        event.preventDefault();
+    }, false);
+
+    $("#welfare").bind("touchstart",function(event){
+
+        $.ajax({
+            type: 'GET',
+            data: {
+                activityCode:'a002',
+            },
+            url: "/ccdai/api/actPartition/receiveCoupons.htm",
+            dataType: 'json',
+            success: function(data) {
+
+              if(data.result=='0'){
+                   $(".pop").css({"display" : "block"});
+                   $(".toast2").css({"display" : "block"});
+                  $(".sureBtn2").bind("touchstart",function(){
+                      $(".pop").css({"display" : "none"});
+                      $(".toast2").css({"display" : "none"});
+                  })
+              }else if(data.result=='-1'){
+                   $(".pop").css({"display" : "block"});
+                    msgReminder(data.resultMessage);
+                   $(".toast1").css({"display" : "block"});
+                   $(".sureBtn1").bind("touchstart",function(){
+                      $(".pop").css({"display" : "none"});
+                      $(".toast1").css({"display" : "none"});
+                   })
+              }
+          },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            alert('网络错误，请稍后再试~');
+           // alert(XMLHttpRequest.readyState+"--"+XMLHttpRequest.status+"--"+textStatus);
+         }
+        });
+
+    });
+
+    var msgReminder=function(txt){
+        var _html = "";
+        _html += "<div class='toast1'>";
+        _html += "<div class='leadimg'></div>";
+        _html += "<div class='coupon'>";
+        _html += " <p> "+txt+"</p>";
+        _html += " <div class='sureBtn1'>确定</div>";
+        _html += "</div></div>";
+        $(_html).appendTo($('body'));
+
+    }
+
+
+
+
+    //PV 统计
+    var _vds = _vds || [];
+    window._vds = _vds;
+    (function () {
+        _vds.push(['setAccountId', 'XXXXXXXXXXXX']);
+        (function () {
+            var vds = document.createElement('script');
+            vds.type = 'text/javascript';
+            vds.async = true;
+            vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(vds, s);
+        })();
+    })();
+
+</script>
