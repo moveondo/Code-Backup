@@ -9,3 +9,24 @@ https://didi.github.io/cube-ui/#/zh-CN/docs/introduction
 https://blog.csdn.net/licanty/article/details/75669582
 
 ps: 链接:https://pan.baidu.com/s/1XQsDsS45aSg2IAumiYKMcQ 密码:qkf5
+
+
+BUILD_ID=DONTKILLME
+
+
+sed -i "s/12333333tftest123/232323tfapi2323/g" src/main.js
+sed -i "s/232323tftest2323/2323tfapi23232/g" src/components/utils/http.js
+
+sed -i "s/232323tftest2323/2323tfapi2323/g" static/ueditor/url.js
+
+
+npm install --registry=https://registry.npm.taobao.org
+
+npm run build
+
+rm -r -f /home/site/reportManager121212
+
+mkdir /home/site/reportManager121212
+
+cd dist
+cp -r -f * /home/site/reportManager121212
