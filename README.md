@@ -30,3 +30,8 @@ mkdir /home/site/reportManager121212
 
 cd dist
 cp -r -f * /home/site/reportManager121212
+
+
+
+
+https://www.processon.com/view/58df10a8e4b0a58053597bd5
