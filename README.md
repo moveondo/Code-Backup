@@ -31,6 +31,8 @@ mkdir /home/site/reportManager121212
 cd dist
 cp -r -f * /home/site/reportManager121212
 
+http://tfsec.hipland.net/reportManager/#/login
+
 
 
 vue 思维导图：
